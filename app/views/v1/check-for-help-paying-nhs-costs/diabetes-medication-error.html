@@ -23,40 +23,39 @@ Question page
                 </p>
                 <ul class="nhsuk-list nhsuk-error-summary__list">
                     <li>
-                        <a href="#error-summary-title">Select 'yes' if you have an income of £15,276 or less</a>
+                        <a href="#error-summary-title">Select 'yes' if you need to take medication to keep your blood sugar levels stable</a>
                     </li>
                 </ul>
             </div>
         </div>
 
         <h1 class="nhsuk-fieldset__legend--l">
-            Is your household income £15,276 or less?
+            Do you need to take medication to keep your blood sugar levels stable?
         </h1>
 
-        <form action="/v1/check-for-help-paying-nhs-costs/tax-credit-income" method="post">
+        <form action="/v1/check-for-help-paying-nhs-costs/diabetes-medication" method="post">
 
             <div class="nhsuk-form-group nhsuk-form-group--error">
 
                 <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
                         <span class="nhsuk-hint" id="example-hint">
-                            <p>This is the income that is used to work out your Tax Credit payments.</p>
-                            <p>You can find this on your current tax credit award notice or contact the <a href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries">tax credits helpline</a>.</p>
+                                <p>This means you don't control your diabetes by diet alone.</p>
                         </span>
 
                         <span class="nhsuk-error-message" id="error-summary-title">
-                                <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you have an income of £15,276 or less
+                                <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you need to take medication to keep your blood sugar levels stable
                         </span>
 
                     <div class="nhsuk-radios nhsuk-radios--inline">
                         <div class="nhsuk-radios__item">
-                            <input class="nhsuk-radios__input" id="yes" name="tax-credit-income" type="radio" value="yes">
+                            <input class="nhsuk-radios__input" id="yes" name="diabetes-medication" type="radio" value="yes">
                             <label class="nhsuk-label nhsuk-radios__label" for="yes">
                                 Yes
                             </label>
                         </div>
                         <div class="nhsuk-radios__item">
-                            <input class="nhsuk-radios__input" id="no" name="tax-credit-income" type="radio" value="no">
+                            <input class="nhsuk-radios__input" id="no" name="diabetes-medication" type="radio" value="no">
                             <label class="nhsuk-label nhsuk-radios__label" for="no">
                                 No
                             </label>

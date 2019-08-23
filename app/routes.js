@@ -349,3 +349,54 @@ router.post('/v1/check-for-help-paying-nhs-costs/pregnant-or-given-birth', funct
   }
 
 })
+
+// War pensioner
+router.post('/v1/check-for-help-paying-nhs-costs/war-pensioner', function (req, res) {
+
+  var warPensioner = req.session.data['war-pensioner']
+
+  if (warPensioner === "yes"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/diabetes')
+  }
+  else if (warPensioner === "no") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/diabetes')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/war-pensioner-error')
+  }
+
+})
+
+// Diabetes
+router.post('/v1/check-for-help-paying-nhs-costs/diabetes', function (req, res) {
+
+  var diabetes = req.session.data['diabetes']
+
+  if (diabetes === "yes"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/diabetes-medication')
+  }
+  else if (diabetes === "no") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/list-of-medical-conditions')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/diabetes-error')
+  }
+
+})
+
+// Diabetes medication
+router.post('/v1/check-for-help-paying-nhs-costs/diabetes-medication', function (req, res) {
+
+  var diabetesMedication = req.session.data['diabetes-medication']
+
+  if (diabetesMedication === "yes"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/care-home')
+  }
+  else if (diabetesMedication === "no") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/list-of-medical-conditions')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/diabetes-medication-error')
+  }
+
+})

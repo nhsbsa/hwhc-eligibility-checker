@@ -24,7 +24,7 @@ Question page
                     </p>
                     <ul class="nhsuk-list nhsuk-error-summary__list">
                         <li>
-                            <a href="#example-error-1">Select 'yes' if you get paid Universal Credit</a>
+                            <a href="#error-summary-title">Select 'yes' if you get paid Universal Credit</a>
                         </li>
                     </ul>
                 </div>
@@ -46,7 +46,7 @@ Question page
                     </p>
                     <ul class="nhsuk-list nhsuk-error-summary__list">
                         <li>
-                            <a href="#example-error-1">Select 'yes' if you or your partner get paid Universal Credit</a>
+                            <a href="#error-summary-title">Select 'yes' if you or your partner get paid Universal Credit</a>
                         </li>
                     </ul>
                 </div>
@@ -64,7 +64,7 @@ Question page
                 <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
                     {% if data['partner'] == "no" %}
-                    <span class="nhsuk-error-message" id="dob-day-error-error">
+                    <span class="nhsuk-error-message" id="error-summary-title">
                             <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you get paid Universal Credit
                     </span>
 
@@ -95,7 +95,7 @@ Question page
                     {% endif %}
 
                     {% if data['partner'] == "yes" %}
-                    <span class="nhsuk-error-message" id="dob-day-error-error">
+                    <span class="nhsuk-error-message" id="error-summary-title">
                             <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you or your partner get paid Universal Credit
                     </span>
 
