@@ -1,0 +1,145 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block content %}
+<script
+  src="https://code.jquery.com/jquery-1.9.1.min.js"
+  integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ="
+  crossorigin="anonymous"></script>
+<script>
+$('.nhsuk-checkboxes__input').on('change', function() {
+    $('.nhsuk-checkboxes__input').not(this).prop('checked', false);  
+});
+</script>
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+
+        {% if data['partner'] == "no" %}
+        <h1 class="nhsuk-fieldset__legend--l">
+                Do you get any of these benefits?
+        </h1>
+        {% endif %}
+
+        {% if data['partner'] == "yes" %}
+        <h1 class="nhsuk-fieldset__legend--l">
+            Do you or your partner get any of these benefits?
+        </h1>
+        {% endif %}
+
+        <span class="nhsuk-hint" id="nationality-hint">
+            Select all options that are relevant to you.
+        </span>
+
+        <form action="/v1/check-for-help-paying-nhs-costs/benefits" method="post">
+
+            <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+                    <div class="nhsuk-checkboxes">
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="tax-credits" name="benefits" type="checkbox"
+                                value="tax-credits">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="tax-credits">
+                                Tax credits
+                            </label>
+                        </div>
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="income-support" name="benefits" type="checkbox"
+                                value="income-support">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="income-support">
+                                Income Support
+                            </label>
+                        </div>
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="employment-support-allowance" name="benefits"
+                                type="checkbox" value="employment-support-allowance">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="employment-support-allowance">
+                                Employment and Support Allowance (ESA)
+                            </label>
+                        </div>
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="job-seekers-allowance" name="benefits"
+                                type="checkbox" value="job-seekers-allowance">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="job-seekers-allowance">
+                                Jobseeker's Allowance (JSA)
+                            </label>
+                        </div>
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="pension-credit" name="benefits" type="checkbox"
+                                value="pension-credit">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="pension-credit">
+                                Pension Credit
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__divider">or</div>
+                        
+                        {% if data['partner'] == "no" %}
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="no-benefits" name="benefits" type="checkbox"
+                                value="no-benefits">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="no-benefits">
+                                No, I don't get any of these
+                            </label>
+                        </div>
+                        {% endif %}
+
+                        {% if data['partner'] == "yes" %}
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="no-benefits" name="benefits" type="checkbox"
+                                value="no-benefits">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="no-benefits">
+                                No, we don't get any of these
+                            </label>
+                        </div>
+                        {% endif %}
+                    </div>
+                </fieldset>
+
+            </div>
+
+
+            <details class="nhsuk-details">
+                    <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                            If your benefit isn't listed or has recently changed
+                        </span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                        <h4>We don't ask about these benefits because they do not entitle you to help with NHS costs:</h4>
+                        <ul>
+                            <li>PIP (Personal Independence Payment)</li>
+                            <li>AFIP (Armed Forces Independence Payment)</li>
+                            <li>DLA (Disability Living Allowance)</li>
+                            <li>Incapacity Benefit</li>
+                            <li>Attendance Allowance</li>
+                            <li>Carer's Allowance</li>
+                            <li>Housing Benefit</li>
+                            <li>Child Benefit</li>
+                            <li>Council Tax Benefit</li>
+                        </ul>
+                        <p>It's important you know what benefit you get. If you're not sure contact the <a
+                                target="_blank"
+                                href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus
+                                Helpline</a>.</p>
+                    </div>
+                </details>
+
+            <button class="nhsuk-button" type="submit">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

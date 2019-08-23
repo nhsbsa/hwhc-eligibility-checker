@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+
+        <span class="nhsuk-caption-xl nhsuk-caption--top">Based on what you've told us</span>
+        <h1 class="nhsuk-u-margin-bottom-5">There are 2 ways that you could get help to pay for your NHS costs</h1>
+        <p class="nhsuk-caption-l nhsuk-caption--bottom">This is a new online service and we're only inviting a limited number of people to apply.</p>
+
+        <div class="nhsuk-care-card nhsuk-care-card--non-urgent">
+            <div class="nhsuk-care-card__heading-container">
+                <h3 class="nhsuk-care-card__heading"><span role="text">Option 1</span></h3>
+                <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
+            </div>
+            <div class="nhsuk-care-card__content">
+                <h2>Apply for further help</h2>
+                <h3>You could get further help depending on your financial circumstances.</h3>
+                <p>You don’t have to be claiming benefits to apply. People on low incomes with jobs may
+                    be eligible. We take your total household income into account as well as your Council Tax
+                    and housing costs.</p>
+                <h3>You may get help paying for:
+                </h3>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>NHS prescriptions</li>
+                    <li>NHS dental check-ups and treatment</li>
+                    <li>sight tests</li>
+                    <li>new glasses or contact lenses</li>
+                    <li>repairing or replacing your glasses or contact lenses</li>
+                    <li>NHS wigs and fabric supports</li>
+                    <li>travel for NHS treatment</li>
+                </ul>
+                <p>Any help you get covers your partner and dependant children under 19.</p>
+                <a class="nhsuk-button" href="https://low-income-support.herokuapp.com/apply/iteration-1/apply-online-invite">Find out more</a>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="nhsuk-care-card nhsuk-care-card--non-urgent">
+            <div class="nhsuk-care-card__heading-container">
+                <h3 class="nhsuk-care-card__heading"><span role="text">Option 2</span></h3>
+                <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
+            </div>
+            <div class="nhsuk-care-card__content">
+                <h2>Prepay for prescriptions</h2>
+                <h3>Save money on NHS prescriptions by prepaying for them</h3>
+                <p>You can pay a set price for prescriptions for 3 or 12 months, no matter how many you need.</p>
+                <p>A prescription costs £9.00 per item, but prepayment costs:</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>£29.10 for 3 month</li>
+                    <li>£104 for 12 months<br>(or 10 payments of £10.40)</li>
+                </ul>
+                <h3>You will only get help with:</h3>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>NHS prescriptions</li>
+                </ul>
+                <a class="nhsuk-button" href="https://ppc-prototype-2.herokuapp.com/ppc/v4/start">Find out more</a>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
