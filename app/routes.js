@@ -400,3 +400,20 @@ router.post('/v1/check-for-help-paying-nhs-costs/diabetes-medication', function 
   }
 
 })
+
+// List of medical conditions
+router.post('/v1/check-for-help-paying-nhs-costs/list-of-medical-conditions', function (req, res) {
+
+  var medicalConditions = req.session.data['list-of-medical-conditions']
+
+  if (medicalConditions === "yes"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/care-home')
+  }
+  else if (medicalConditions === "no") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/list-of-medical-conditions')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/list-of-medical-conditions-error')
+  }
+
+})

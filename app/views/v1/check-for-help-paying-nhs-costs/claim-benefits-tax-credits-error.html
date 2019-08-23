@@ -24,7 +24,7 @@ Question page
                 </p>
                 <ul class="nhsuk-list nhsuk-error-summary__list">
                     <li>
-                        <a href="#error-summary-title">Select 'yes' if you are claim any benefits or tax credits</a>
+                        <a href="#error-summary-1">Select 'yes' if you are claim any benefits or tax credits</a>
                     </li>
                 </ul>
             </div>
@@ -45,7 +45,7 @@ Question page
                 </p>
                 <ul class="nhsuk-list nhsuk-error-summary__list">
                     <li>
-                        <a href="#error-summary-title">Select 'yes' if you or your partner claim any benefits or tax
+                        <a href="#error-summary-1">Select 'yes' if you or your partner claim any benefits or tax
                             credits</a>
                     </li>
                 </ul>
@@ -64,14 +64,14 @@ Question page
 
 
                     {% if data['partner'] == "no" %}
-                    <span class="nhsuk-error-message" id="error-summary-title">
+                    <span class="nhsuk-error-message" id="error-summary-1">
                         <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you are claim any benefits
                         or tax credits
                     </span>
                     {% endif %}
 
                     {% if data['partner'] == "yes" %}
-                    <span class="nhsuk-error-message" id="error-summary-title">
+                    <span class="nhsuk-error-message" id="error-summary-1">
                         <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you or your partner claim
                         any benefits or tax credits
                     </span>
