@@ -177,7 +177,11 @@ router.post('/v1/check-for-help-paying-nhs-costs/benefits', function (req, res) 
 
   var benefits = req.session.data['benefits']
 
-  if (benefits.includes('income-support')) {
+  if (benefits.includes('employment-support-allowance') && benefits.includes('job-seekers-allowance')) {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/benefits-ESA-JSA-error')
+  }
+
+  else if (benefits.includes('income-support')) {
     res.redirect('/v1/check-for-help-paying-nhs-costs/result-claiming-qualifying-income-support')
   }
   else if (benefits.includes('tax-credits')) {
@@ -331,6 +335,48 @@ router.post('/v1/check-for-help-paying-nhs-costs/tax-credit-income', function (r
   else {
     res.redirect('/v1/check-for-help-paying-nhs-costs/tax-credit-income-error')
   }
+})
+
+// Employment and Support (ESA) type
+router.post('/v1/check-for-help-paying-nhs-costs/employment-support-allowance-type', function (req, res) {
+
+  var benefits = req.session.data['benefits']
+  var esaType = req.session.data['employment-support-allowance-type']
+
+  if (esaType === "income"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result-claiming-qualifying-esa')
+  }
+  else if (esaType === "contribution" && benefits.includes('pension-credit')) {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/pension-credit-type')
+  }
+  else if (esaType === "contribution") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/pregnant-or-given-birth')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/employment-support-allowance-type-error')
+  }
+
+})
+
+// Jobseeker's Allowance (JSA) type
+router.post('/v1/check-for-help-paying-nhs-costs/jobseekers-allowance-type', function (req, res) {
+
+  var benefits = req.session.data['benefits']
+  var jsaType = req.session.data['jobseekers-allowance-type']
+
+  if (jsaType === "income"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result-claiming-qualifying-jsa')
+  }
+  else if (jsaType === "contribution" && benefits.includes('pension-credit')) {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/pension-credit-type')
+  }
+  else if (jsaType === "contribution") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/pregnant-or-given-birth')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/jobseekers-allowance-type-error')
+  }
+
 })
 
 // Pregnant or given birth
