@@ -379,6 +379,26 @@ router.post('/v1/check-for-help-paying-nhs-costs/jobseekers-allowance-type', fun
 
 })
 
+// Pension credit type
+router.post('/v1/check-for-help-paying-nhs-costs/pension-credit-type', function (req, res) {
+
+  var pensionCreditType = req.session.data['pension-credit-type']
+
+  if (pensionCreditType === "GC"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result-claiming-qualifying-pension-credit')
+  }
+  else if (pensionCreditType === "GCwithSC") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result-claiming-qualifying-pension-credit')
+  }
+  else if (pensionCreditType === "SC") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/pregnant-or-given-birth')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/pension-credit-type-error')
+  }
+
+})
+
 // Pregnant or given birth
 router.post('/v1/check-for-help-paying-nhs-costs/pregnant-or-given-birth', function (req, res) {
 
