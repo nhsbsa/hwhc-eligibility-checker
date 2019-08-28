@@ -471,15 +471,125 @@ router.post('/v1/check-for-help-paying-nhs-costs/diabetes-medication', function 
 router.post('/v1/check-for-help-paying-nhs-costs/list-of-medical-conditions', function (req, res) {
 
   var medicalConditions = req.session.data['list-of-medical-conditions']
+  var diabetes = req.session.data['diabetes']
+
 
   if (medicalConditions === "yes"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/glaucoma')
+  }
+  else if (medicalConditions === "no" && diabetes === "yes") {
     res.redirect('/v1/check-for-help-paying-nhs-costs/care-home')
   }
-  else if (medicalConditions === "no") {
-    res.redirect('/v1/check-for-help-paying-nhs-costs/list-of-medical-conditions')
+  else if (medicalConditions === "no" && diabetes === "no") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/glaucoma')
   }
   else {
     res.redirect('/v1/check-for-help-paying-nhs-costs/list-of-medical-conditions-error')
+  }
+
+})
+
+// Glaucoma
+router.post('/v1/check-for-help-paying-nhs-costs/glaucoma', function (req, res) {
+
+  var glaucoma = req.session.data['glaucoma']
+
+  if (glaucoma === "yes"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/care-home')
+  }
+  else if (glaucoma === "no") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/care-home')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/glaucoma-error')
+  }
+
+})
+
+// Care home
+router.post('/v1/check-for-help-paying-nhs-costs/care-home', function (req, res) {
+
+  var careHome = req.session.data['care-home']
+
+  if (careHome === "yes"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/local-council-assessed')
+  }
+  else if (careHome === "no") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/savings')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/care-home-error')
+  }
+
+})
+// Care home (local council assessed)
+router.post('/v1/check-for-help-paying-nhs-costs/local-council-assessed', function (req, res) {
+
+  var councilAssessed = req.session.data['local-council-assessed']
+
+  if (councilAssessed === "yes"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result-council-help-care-home')
+  }
+  else if (councilAssessed === "no") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/savings')
+  }
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/local-council-assessed-error')
+  }
+
+})
+
+// Savings
+router.post('/v1/check-for-help-paying-nhs-costs/savings', function (req, res) {
+
+  var benefits = req.session.data['benefits']
+  var pregnant = req.session.data['pregnant']
+  var warPensioner = req.session.data['war-pensioner']
+  var diabetes = req.session.data['diabetes']
+  var medicalConditions = req.session.data['list-of-medical-conditions']
+  var glaucoma = req.session.data['glaucoma']
+  var savings = req.session.data['savings']
+
+  if (!savings) {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/savings-error')
+  }
+
+  else if (savings == "yes"){
+    res.redirect('/v1/check-for-help-paying-nhs-costs/invitation-1')
+  }
+
+  else if (benefits === "yes") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/invitation-2')
+  }
+
+  else if (pregnant === "yes") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result')
+  }
+
+  else if (warPensioner === "yes") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result')
+  }
+
+  else if (diabetes === "yes") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result')
+  }
+
+  else if (medicalConditions === "yes") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result')
+  }
+
+  else if (glaucoma === "yes") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/result')
+  }
+
+  else if (savings === "no") {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/invitation-2')
+  }
+
+
+
+  else {
+    res.redirect('/v1/check-for-help-paying-nhs-costs/savings-error')
   }
 
 })
