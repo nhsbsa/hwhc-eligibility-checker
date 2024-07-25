@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+            {{ backLink({
+                "href": "javascript:history.go(-1)",
+                "text": "Go back"
+            }) }}
+
+        {% if data['partner'] == "no" %}
+        <h1 class="nhsuk-fieldset__legend--l">
+            Which type of Employment and Support Allowance (ESA) do you get?
+        </h1>
+        {% endif %}
+
+        {% if data['partner'] == "yes" %}
+        <h1 class="nhsuk-fieldset__legend--l">
+            Which type of Employment and Support Allowance (ESA) do you or your partner get?
+        </h1>
+        {% endif %}
+
+        <form action="/v2/check-for-help-paying-nhs-costs/employment-support-allowance-type" method="post">
+
+            <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+                        <span class="nhsuk-hint" id="example-hint">
+                                There are 2 types of ESA, income-related and contribution-based.
+                        </span>
+
+                        <details class="nhsuk-details">
+                                <summary class="nhsuk-details__summary">
+                                    <span class="nhsuk-details__summary-text">
+                                        I'm not sure which type I get
+                                    </span>
+                                </summary>
+                                <div class="nhsuk-details__text">
+                                    <h4>Check your benefit payment letter</h4>
+                                    <p>On page 3 of your benefit letter, look under the heading <strong>'Income and Benefits'</strong>.</p>
+                                    <p>It will say either:</p>
+                                    <ul>
+                                        <li>'your <strong>income-related</strong> entitlement is', or</li>
+                                        <li>'you are entitled to <strong>contribution-based</strong>'</li>
+                                    </ul>
+                                    <p>Find out more about the different types of <a target="_blank"
+                                        href="https://www.gov.uk/employment-support-allowance/types-of-esa">ESA</a>.</p>
+                                    <p>It's important you know what benefit you get. If you're not sure contact the <a target="_blank"
+                                            href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus
+                                            Helpline</a>.</p>
+                                </div>
+                        </details>
+
+                    <div class="nhsuk-radios">
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="income" name="employment-support-allowance-type" type="radio" value="income">
+                            <label class="nhsuk-label nhsuk-radios__label" for="income">
+                                Income-related ESA
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="contribution" name="employment-support-allowance-type" type="radio" value="contribution">
+                            <label class="nhsuk-label nhsuk-radios__label" for="contribution">
+                                Contribution-based ESA
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
+
+            <button class="nhsuk-button" type="submit">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

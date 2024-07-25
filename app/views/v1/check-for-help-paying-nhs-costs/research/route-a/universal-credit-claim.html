@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+            {{ backLink({
+                "href": "javascript:history.go(-1)",
+                "text": "Go back"
+            }) }}
+
+            {% if data['partner'] == "no" %}
+            <h1 class="nhsuk-fieldset__legend--l">
+                    As part of your Universal Credit, do you have any of these?
+                </h1>
+            {% endif %}
+    
+            {% if data['partner'] == "yes" %}
+            <h1 class="nhsuk-fieldset__legend--l">
+                    As part of your joint Universal Credit, do you have any of these?
+                </h1>
+            {% endif %}
+
+
+
+
+
+        
+
+        <form action="/v1/check-for-help-paying-nhs-costs/research/route-a/universal-credit-claim" method="post">
+
+            <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+                    <ul>
+                        <li>Responsibility for a child or young person who lives with you</li>
+                        <li>Limited capability for work (LCW)</li>
+                        <li>Limited capability for work and work related activity (LCWRA)</li>
+                    </ul>
+
+                    <div class="nhsuk-radios nhsuk-radios--inline">
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="yes" name="universal-credit-claim" type="radio"
+                                value="yes">
+                            <label class="nhsuk-label nhsuk-radios__label" for="yes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="no" name="universal-credit-claim" type="radio"
+                                value="no">
+                            <label class="nhsuk-label nhsuk-radios__label" for="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
+
+            <button class="nhsuk-button" type="submit">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

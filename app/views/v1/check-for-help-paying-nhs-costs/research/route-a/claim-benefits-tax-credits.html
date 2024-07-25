@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+
+        {% if data['partner'] == "no" %}
+        <h1 class="nhsuk-fieldset__legend--l">
+            Do you claim any benefits or tax credits?
+        </h1>
+        {% endif %}
+
+        {% if data['partner'] == "yes" %}
+        <h1 class="nhsuk-fieldset__legend--l">
+            Do you or your partner claim any benefits or tax credits?
+        </h1>
+        {% endif %}
+
+        <form action="/v1/check-for-help-paying-nhs-costs/research/route-a/claim-benefits-tax-credits" method="post">
+
+            <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+                    <div class="nhsuk-radios nhsuk-radios--inline">
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="yes" name="benefits" type="radio" value="yes">
+                            <label class="nhsuk-label nhsuk-radios__label" for="yes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="no" name="benefits" type="radio" value="no">
+                            <label class="nhsuk-label nhsuk-radios__label" for="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
+
+            <button class="nhsuk-button" type="submit">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

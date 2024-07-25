@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+
+        <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+            <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="nhsuk-error-summary__body">
+                <p>
+                    Check your answer. You must:
+                </p>
+                <ul class="nhsuk-list nhsuk-error-summary__list">
+                    <li>
+                        <a href="#error-summary-1">Select 'yes' if your medical condition is listed</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h1 class="nhsuk-fieldset__legend--l">
+            To check what help you can get with NHS charges, we need to know if you're affected by any of these conditions
+        </h1>
+
+        <div class="nhsuk-inset-text nhsuk-u-margin-top-3 nhsuk-u-margin-bottom-5">
+                <span class="nhsuk-u-visually-hidden">Information: </span>
+                <p>If you're unsure about the name of your condition or treatment, check with your doctor.</p>
+        </div>
+
+        <ul class="nhsuk-list nhsuk-list--bullet">
+                <li><h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Cancer and are undergoing treatment</h2>Including treatment for the effects of cancer or the effects of cancer treatment</li>
+                <li><h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Epilepsy</h2>Which needs continuous anticonvulsive therapy</li>
+                <li><h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">A continuing physical disability</h2>Which means you can't go out without the help of another person</li>
+                <li><h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">A permanent fistula which needs continuous surgical dressing or an appliance</h2>For example, caecostomy, colostomy, laryngostomy or ileostomy</li>
+                <li><h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Diabetes insipidus and other forms of hypopituitarism</h2></li>
+                <li><h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Myxoedema</h2>For example, hypothyroidism which needs thyroid hormone replacement</li>
+                <li><h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Hypoparathyroidism</h2>Which means your parathyroid glands produce too little parathyroid hormone</li>
+                <li><h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Hypoadrenalism, where specific substitution therapy is essential</h2>For example, Addison's Disease</li>
+                <li><h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-0">Myasthenia gravis</h2>Where an autoimmune condition affects the nerves and muscles</li>
+        </ul>
+
+        <form action="/v2/check-for-help-paying-nhs-costs/list-of-medical-conditions" method="post">
+
+            <div class="nhsuk-form-group nhsuk-form-group--error">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+                        <span class="nhsuk-error-message" id="error-summary-1">
+                                <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if your medical condition is listed
+                        </span>
+
+                    <div class="nhsuk-radios nhsuk-radios--inline">
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="yes" name="list-of-medical-conditions" type="radio" value="yes">
+                            <label class="nhsuk-label nhsuk-radios__label" for="yes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="no" name="list-of-medical-conditions" type="radio" value="no">
+                            <label class="nhsuk-label nhsuk-radios__label" for="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
+
+            <button class="nhsuk-button" type="submit">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

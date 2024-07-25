@@ -1,0 +1,155 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+NHS.UK prototype kit
+{% endblock %}
+
+<!-- Breadcrumb goes inside the beforeContent block -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+    <!-- Change the page title here -->
+    <h1>
+      Eligibility checker
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version 2.0</span>
+    </h1>
+
+    <!-- Add your content here -->
+    <!-- Styles and components can be found at https://beta.nhs.uk/service-manual/styles-components-patterns -->
+
+    <p class="nhsuk-body-l">
+      Although most NHS treatment is free, there are usually charges for prescriptions. Depending on a persons
+      circumstances, they could be entitled to help with these costs.
+    </p>
+
+    <p class="nhsuk-body-l">
+      The eligibility checker determines what help they may be eligibile for.
+    </p>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          V2.0 - July 2024
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <h3 class="nhsuk-heading-m">What's new in Version 2.0</h3>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <p>A number of legacy benefits which entitle users to automatic, full Help With Health Costs are due to end as people in receipt of these benefits are migrated over to Universal Credit. These are:</p>
+          <li>Tax Credits - confirmed to end on 5th April 2025.</li>
+            
+            <li>Income Support - <span style="color:red;">unconfirmed end date</span>, rumoured to be 5th April 2025.</li>
+            
+            <li>Jobseekers Allowance - <span style="color:red;">unconfirmed end date</span>, rumoured to be 5th April 2025.</li>
+            
+            <li>Employment and Support Allowance - <span style="color:red;">unconfirmed end date</span>, rumoured to be 2027-8.</li>
+          
+        </ul>
+        <p>These legacy benefits have now been removed from the MVP prototype</p>
+            <hr>
+            <div class="nhsuk-action-link nhsuk-u-margin-bottom-3">
+              <a class="nhsuk-action-link__link" href="/v2/check-for-help-paying-nhs-costs/start">
+                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                  </path>
+                </svg>
+                <span class="nhsuk-action-link__text">Eligibility checker (MVP)</span>
+              </a>
+            </div>
+
+      </div>
+    </details>
+
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          V1.0
+        </span>
+      </summary>
+      <div class="nhsuk-details__text">
+        <h2 class="nhsuk-heading-l">Using NHS.UK design system for eligibility checker
+        </h2>
+        <h3 class="nhsuk-heading-m">Hypothesis A</h3>
+        <p style="background: #DEE0E2; padding: 20px;"><strong>We
+            believe</strong> that using the NHS.UK design system for the eligibility checker
+          <strong>will
+            be a useful feature for</strong> every applicant who is applying for help with their health costs
+          <strong>as it will</strong> reassure them that the eligibilty checker is a part of the wider group of
+          NHS services. <strong>This
+            will</strong>
+          help users accomplish their needs more efficiently due to the fact we are now being more consistant.
+        </p>
+
+        <p>The NHS Identity is one of the most cherished and recognised brands in the world. When applied correctly and
+          consistently, it evokes exceptionally high levels of trust and reassurance.</p>
+
+        <p>By using NHS Business Services Authority branding for each patient facing service, we are unknowingly diluting
+          the power of the NHS brand.</p>
+
+        <p>In short, by being more consistant with <a href="https://www.nhs.uk/">NHS.UK</a>, usability and learnability
+          will improve because we will be using similar elements which look and function in similar way. </p>
+        <hr>
+        <h3 class="nhsuk-heading-m">What we changed:</h3>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>We replicated the current eligibility checker into the NHS.UK design system.</li>
+          <li>After <a href="/images/cjforms-conversation.png">speaking to</a> Caroline Jarrett (<a href="https://twitter.com/cjforms" target="_blank">@cjforms</a>), we amended the Universal Credit conditional reveal to forward off to a seperate page. This not only gets round the fact that conditional reveals are not available in the NHS.UK design system, but also helps improve usability from an accessibility point of view.</li>
+        </ul>
+        <h3 class="nhsuk-heading-m">What we plan to test:</h3>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          <li>Do users still successfully check what help they can receive with their health costs?</li>
+          <li>Does usability improve because we are now being more consistant with the wider NHS?</li>
+          <li>As a bonus of adopting the new design system, are we now more accessible than we were previously?</li>
+        </ul>
+        <h3 class="nhsuk-heading-m">What we found:</h4>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>...</li>
+          </ul>
+          <h3 class="nhsuk-heading-m">Known issues:</h4>
+            <p>There are no NHS.UK alternatives to the following GDS / BSA components:</p>
+            <ul class="nhsuk-list nhsuk-list--number">
+              <li><a target="_blank" href="https://design-system.service.gov.uk/components/radios/#conditionally-revealing-content">Conditionally revealing content</a></li>
+              <li><a target="_blank" href="/images/bsa-invitation-screens.png">Invitation pages</a></li>
+              <li><a target="_blank" href="https://design-system.service.gov.uk/patterns/confirmation-pages/">Confirmation pages</a></li>
+            </ul>
+            <hr>
+            <div class="nhsuk-action-link nhsuk-u-margin-bottom-3">
+              <a class="nhsuk-action-link__link" href="/v1/check-for-help-paying-nhs-costs/start">
+                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                  </path>
+                </svg>
+                <span class="nhsuk-action-link__text">Eligibility checker (MVP)</span>
+              </a>
+            </div>
+
+      </div>
+    </details>
+
+    <!-- End of content -->
+
+  </div>
+</div>
+{% endblock %}
