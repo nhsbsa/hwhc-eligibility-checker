@@ -952,7 +952,7 @@ router.post('/v1/check-for-help-paying-nhs-costs/universal-credit-take-home-pay'
   var universalcredittakehomepay = req.session.data['universal-credit-take-home-pay']
 
   if (universalcredittakehomepay === "yes"){
-    res.redirect('/v1/check-for-help-paying-nhs-costs/universal-credit-take-home-pay')
+    res.redirect('/v1/check-for-help-paying-nhs-costs/done')
   }
   else if (universalcredittakehomepay === "no") {
     res.redirect('/v1/check-for-help-paying-nhs-costs/universal-credit-take-home-pay')
