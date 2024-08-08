@@ -43,16 +43,36 @@ NHS.UK prototype kit
       The eligibility checker determines what help they may be eligibile for.
     </p>
 
-    <details class="nhsuk-details nhsuk-expander">
-      <summary class="nhsuk-details__summary">
-        <span class="nhsuk-details__summary-text">
-          Sprint 65
-        </span>
-      </summary>
-      <div class="nhsuk-details__text">
-        <h2 class="nhsuk-heading-l">Using NHS.UK design system for eligibility checker
+    <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+      <h2 class="nhsuk-tabs__title">
+        Contents
+      </h2>
+    
+      <ul class="nhsuk-tabs__list">
+    
+        <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+          <a class="nhsuk-tabs__tab" href="#EligibilityCheckerMVP">
+            Eligibility Checker (MVP)
+          </a>
+        </li>
+    
+        <li class="nhsuk-tabs__list-item">
+          <a class="nhsuk-tabs__tab" href="#ResearchPrototypes">
+            Research Prototypes
+          </a>
+        </li>
+    
+      </ul>
+
+       <!-- ----------------------------  Eligibility Checker MVP ------------------------------ -->
+
+      <div class="nhsuk-tabs__panel" id="EligibilityCheckerMVP">
+        <h2 class="nhsuk-heading-l">August 2024 User Research A/B Testing
         </h2>
-        <h3 class="nhsuk-heading-m">Hypothesis A</h3>
+        <a class="nhsuk-button" data-module="nhsuk-button" type="submit" href="/research/august-2024/route-a/start">
+          Latest prototype version (v2.0)
+        </a>
+        <h3 class="nhsuk-heading-m">What's new in v2.0</h3>
         <p style="background: #DEE0E2; padding: 20px;"><strong>We
             believe</strong> that using the NHS.UK design system for the eligibility checker
           <strong>will
@@ -72,44 +92,120 @@ NHS.UK prototype kit
         <p>In short, by being more consistant with <a href="https://www.nhs.uk/">NHS.UK</a>, usability and learnability
           will improve because we will be using similar elements which look and function in similar way. </p>
         <hr>
-        <h3 class="nhsuk-heading-m">What we changed:</h3>
-        <ul class="nhsuk-list nhsuk-list--bullet">
-          <li>We replicated the current eligibility checker into the NHS.UK design system.</li>
-          <li>After <a href="/images/cjforms-conversation.png">speaking to</a> Caroline Jarrett (<a href="https://twitter.com/cjforms" target="_blank">@cjforms</a>), we amended the Universal Credit conditional reveal to forward off to a seperate page. This not only gets round the fact that conditional reveals are not available in the NHS.UK design system, but also helps improve usability from an accessibility point of view.</li>
-        </ul>
-        <h3 class="nhsuk-heading-m">What we plan to test:</h3>
-        <ul class="nhsuk-list nhsuk-list--bullet">
-          <li>Do users still successfully check what help they can receive with their health costs?</li>
-          <li>Does usability improve because we are now being more consistant with the wider NHS?</li>
-          <li>As a bonus of adopting the new design system, are we now more accessible than we were previously?</li>
-        </ul>
-        <h3 class="nhsuk-heading-m">What we found:</h4>
-          <ul class="nhsuk-list nhsuk-list--bullet">
-            <li>...</li>
-          </ul>
-          <h3 class="nhsuk-heading-m">Known issues:</h4>
-            <p>There are no NHS.UK alternatives to the following GDS / BSA components:</p>
-            <ul class="nhsuk-list nhsuk-list--number">
-              <li><a target="_blank" href="https://design-system.service.gov.uk/components/radios/#conditionally-revealing-content">Conditionally revealing content</a></li>
-              <li><a target="_blank" href="/images/bsa-invitation-screens.png">Invitation pages</a></li>
-              <li><a target="_blank" href="https://design-system.service.gov.uk/patterns/confirmation-pages/">Confirmation pages</a></li>
-            </ul>
+        <h3 class="nhsuk-heading-m">Version History</h3>
+        
+         <!-- ----------------------------  Expander v1.0 ------------------------------ -->
+
+        <details class="nhsuk-details nhsuk-expander">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Sprint 65
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <h2 class="nhsuk-heading-l">Using NHS.UK design system for eligibility checker
+            </h2>
+            <h3 class="nhsuk-heading-m">Hypothesis A</h3>
+            <p style="background: #DEE0E2; padding: 20px;"><strong>We
+                believe</strong> that using the NHS.UK design system for the eligibility checker
+              <strong>will
+                be a useful feature for</strong> every applicant who is applying for help with their health costs
+              <strong>as it will</strong> reassure them that the eligibilty checker is a part of the wider group of
+              NHS services. <strong>This
+                will</strong>
+              help users accomplish their needs more efficiently due to the fact we are now being more consistant.
+            </p>
+    
+            <p>The NHS Identity is one of the most cherished and recognised brands in the world. When applied correctly and
+              consistently, it evokes exceptionally high levels of trust and reassurance.</p>
+    
+            <p>By using NHS Business Services Authority branding for each patient facing service, we are unknowingly diluting
+              the power of the NHS brand.</p>
+    
+            <p>In short, by being more consistant with <a href="https://www.nhs.uk/">NHS.UK</a>, usability and learnability
+              will improve because we will be using similar elements which look and function in similar way. </p>
             <hr>
-            <div class="nhsuk-action-link nhsuk-u-margin-bottom-3">
-              <a class="nhsuk-action-link__link" href="/v1/check-for-help-paying-nhs-costs/start">
-                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
-                  </path>
-                </svg>
-                <span class="nhsuk-action-link__text">Eligibility checker (MVP)</span>
-              </a>
-            </div>
+            <h3 class="nhsuk-heading-m">What we changed:</h3>
+            <ul class="nhsuk-list nhsuk-list--bullet">
+              <li>We replicated the current eligibility checker into the NHS.UK design system.</li>
+              <li>After <a href="/images/cjforms-conversation.png">speaking to</a> Caroline Jarrett (<a href="https://twitter.com/cjforms" target="_blank">@cjforms</a>), we amended the Universal Credit conditional reveal to forward off to a seperate page. This not only gets round the fact that conditional reveals are not available in the NHS.UK design system, but also helps improve usability from an accessibility point of view.</li>
+            </ul>
+            <h3 class="nhsuk-heading-m">What we plan to test:</h3>
+            <ul class="nhsuk-list nhsuk-list--bullet">
+              <li>Do users still successfully check what help they can receive with their health costs?</li>
+              <li>Does usability improve because we are now being more consistant with the wider NHS?</li>
+              <li>As a bonus of adopting the new design system, are we now more accessible than we were previously?</li>
+            </ul>
+            <h3 class="nhsuk-heading-m">What we found:</h4>
+              <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>...</li>
+              </ul>
+              <h3 class="nhsuk-heading-m">Known issues:</h4>
+                <p>There are no NHS.UK alternatives to the following GDS / BSA components:</p>
+                <ul class="nhsuk-list nhsuk-list--number">
+                  <li><a target="_blank" href="https://design-system.service.gov.uk/components/radios/#conditionally-revealing-content">Conditionally revealing content</a></li>
+                  <li><a target="_blank" href="/images/bsa-invitation-screens.png">Invitation pages</a></li>
+                  <li><a target="_blank" href="https://design-system.service.gov.uk/patterns/confirmation-pages/">Confirmation pages</a></li>
+                </ul>
+                <hr>
+                <div class="nhsuk-action-link nhsuk-u-margin-bottom-3">
+                  <a class="nhsuk-action-link__link" href="/v1/check-for-help-paying-nhs-costs/start">
+                    <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M0 0h24v24H0z" fill="none"></path>
+                      <path
+                        d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                      </path>
+                    </svg>
+                    <span class="nhsuk-action-link__text">Eligibility checker (MVP)</span>
+                  </a>
+                </div>
+    
+          </div>
+        </details>
+    
+      </div>
+
+       <!-- ----------------------------  Research Tab ------------------------------ -->
+
+      <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="ResearchPrototypes">
+
+
+          <h2 class="nhsuk-heading-l">August 2024 User Research A/B Testing
+          </h2>
+          <a class="nhsuk-button" data-module="nhsuk-button" type="submit" href="/research/august-2024/route-a/start">
+            Prototype Route A
+          </a>
+          <a class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" type="submit" href="/research/august-2024/route-b/start">
+            Prototype Route B
+          </a>
+          <h3 class="nhsuk-heading-m">Hypothesis A</h3>
+          <p style="background: #DEE0E2; padding: 20px;"><strong>We
+              believe</strong> that using the NHS.UK design system for the eligibility checker
+            <strong>will
+              be a useful feature for</strong> every applicant who is applying for help with their health costs
+            <strong>as it will</strong> reassure them that the eligibilty checker is a part of the wider group of
+            NHS services. <strong>This
+              will</strong>
+            help users accomplish their needs more efficiently due to the fact we are now being more consistant.
+          </p>
+  
+          <p>The NHS Identity is one of the most cherished and recognised brands in the world. When applied correctly and
+            consistently, it evokes exceptionally high levels of trust and reassurance.</p>
+  
+          <p>By using NHS Business Services Authority branding for each patient facing service, we are unknowingly diluting
+            the power of the NHS brand.</p>
+  
+          <p>In short, by being more consistant with <a href="https://www.nhs.uk/">NHS.UK</a>, usability and learnability
+            will improve because we will be using similar elements which look and function in similar way. </p>
+          <hr>
+          </div>
 
       </div>
-    </details>
+    
+    </div>
+
+
 
     <!-- End of content -->
 

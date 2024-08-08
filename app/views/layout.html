@@ -32,24 +32,33 @@ NHS.UK prototype kit
 {% endblock %}
 
 <!-- Footer goes inside the footer block -->
-<!-- More info and code for the footer can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/footer -->
 {% block footer %}
-{{ footer({
-    "links": [
-      {
-        "URL": "https://www.nhsbsa.nhs.uk/check-what-help-you-could-get-pay-nhs-costs-privacy-notice",
-        "label": "Privacy"
-      },
-      {
-        "URL": "https://www.nhsbsa.nhs.uk/our-policies/cookies",
-        "label": "Cookies"
-      },
-      {
-        "URL": "https://www.nhsbsa.nhs.uk/our-policies/terms-and-conditions",
-        "label": "Terms and conditions"
-      }
-    ]
-  })}}
+
+  <footer role="contentinfo">
+    <div class="nhsuk-footer-container" id="nhsuk-footer-container">
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-full">
+            <p class="nhsuk-u-secondary-text-color nhsuk-u-font-size-16">This website only stores the cookies that are needed to make it work. Read more about how <a href="/docs/cookies" class="nhsuk-footer__list-item-link">we use cookies.</a></p>
+          </div>
+        </div>
+
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-full">
+            <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+            <ul class="nhsuk-footer__list">
+              <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhsbsa.nhs.uk/check-what-help-you-could-get-pay-nhs-costs-privacy-notice">Privacy</a></li>
+              <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhsbsa.nhs.uk/our-policies/cookies">Cookies</a></li>
+              <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhsbsa.nhs.uk/our-policies/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+
+            <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 {% endblock %}
 
 {% block bodyEnd %}

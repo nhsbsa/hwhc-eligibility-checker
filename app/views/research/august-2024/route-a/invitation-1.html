@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+            "href": "javascript:history.go(-1)",
+            "text": "Go back"
+        }) }}
+
+        <span class="nhsuk-caption-xl nhsuk-caption--top">Based on what you've told us</span>
+        <h1 class="nhsuk-u-margin-bottom-5">You could save money on NHS prescriptions</h1>
+
+        <div class="nhsuk-care-card">
+            <div class="nhsuk-care-card__content">
+                <h2>Prepay for prescriptions</h2>
+                <h3>Save money on NHS prescriptions by prepaying for them</h3>
+                <p>You can pay a set price for prescriptions for 3 or 12 months, no matter how many you need.</p>
+                <p>A prescription costs £9.00 per item, but prepayment costs:</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>£29.10 for 3 month</li>
+                    <li>£104 for 12 months<br>(or 10 payments of £10.40)</li>
+                </ul>
+                <h3>You will only get help with:</h3>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>NHS prescriptions</li>
+                </ul>
+                <a class="nhsuk-button" href="https://ppc-prototype-2.herokuapp.com/ppc/v4/start">Find out more</a>
+
+            </div>
+        </div>
+
+        <h3 class="nhsuk-heading-m">Feedback</h3>
+
+        <p><a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926">What did you think of this service?</a> (Takes
+            30 seconds)</p>
+
+    </div>
+</div>
+
+{% endblock %}

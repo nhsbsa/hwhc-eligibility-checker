@@ -5,7 +5,7 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const browserSync = require('browser-sync');
 const clean = require('gulp-clean');
-var sass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-sass')(require('sass'));
 const nodemon = require('gulp-nodemon');
 
 // Local dependencies
@@ -61,9 +61,9 @@ function compileAssets() {
 function startNodemon(done) {
   const server = nodemon({
     script: 'app.js',
-    stdout: true,
-    ext: 'scss js html',
-    quiet: false,
+    stdout: false,
+    ext: 'js',
+    quiet: true,
   });
   let starting = false;
 
