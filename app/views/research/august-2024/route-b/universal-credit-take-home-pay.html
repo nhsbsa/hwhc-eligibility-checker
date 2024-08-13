@@ -142,25 +142,54 @@
               class="nhsuk-input nhsuk-input--width-10"
               id="take-home-pay"
               name="test-width-10"
-              type="text"
             />
           </div>
         </fieldset>
       </div>
       <script>
-        /* const pay = getElementById('take-home-pay');
-        if (pay <= 935){
-            getElementById('continue-button')
-        } */
-        const pay = document.getElementById("take-home-pay");
-        function urlSet (payValue) {
-          if ( Number(pay.value) <= 935)
-          document.getElementById('continue-button').href = "are-you-sure";
-        } else {
-          document.getElementById('continue-button').href = "www.google.com";
+        function urlSet(){
+        let payValue = document.getElementById('take-home-pay').value;
+
+          if (document.getElementById('take-home-pay').value.trim() == ""){
+
+            document.getElementById('continue-button').href = "universal-credit-take-home-pay-error";
+
+          }  else if (payValue >= 0 && payValue <= 435){
+            
+            document.getElementById('continue-button').href = "done";
+          } else if (payValue > 435) {
+            document.getElementById('continue-button').href = "pregnant-or-given-birth";
+          }  else {
+            console.log('Error');
+          }
         }
+
+
+        function dependentUrl(){
+          let payValue = document.getElementById('take-home-pay').value;
+
+          if (document.getElementById('take-home-pay').value.trim() == ""){
+
+            document.getElementById('continue-button').href = "universal-credit-take-home-pay-error";
+
+          }  else if (payValue >= 0 && payValue <= 935){
+            
+            document.getElementById('continue-button').href = "done";
+          } else if (payValue > 935) {
+            document.getElementById('continue-button').href = "pregnant-or-given-birth";
+          }  else {
+            console.log('Error');
+          }
+        }
+
       </script>
-      <button class="nhsuk-button" id="continue-button" type="submit" onclick='urlSet()'> Continue </button>
+
+      {% if data['universal-credit-claim'] == "no" %}
+      <a class="nhsuk-button" id="continue-button"  onclick='urlSet();'> Continue </a>
+      {% endif %}
+      {% if data['universal-credit-claim'] == "yes" %}
+      <a class="nhsuk-button" id="continue-button" onclick='dependentUrl();'> Continue </a>
+      {% endif %}
     </form>
   </div>
 </div>
