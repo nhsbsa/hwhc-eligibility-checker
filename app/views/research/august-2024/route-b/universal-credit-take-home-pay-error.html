@@ -164,43 +164,41 @@
         </fieldset>
       </div>
     </div>
-      <script>
-        function urlSet(){
+       
+        
+    <script>
+      function urlSet(){
+      let payValue = document.getElementById('take-home-pay').value;
+
+        if (document.getElementById('take-home-pay').value.trim() == ""){
+
+          document.getElementById('continue-button').href = "universal-credit-take-home-pay-error";
+
+        }  else if (payValue >= 0 && payValue <= 435){
+          
+          document.getElementById('continue-button').href = "done";
+        } else if (payValue > 435) {
+          document.getElementById('continue-button').href = "pregnant-or-given-birth";
+        }
+      }
+
+
+      function dependentUrl(){
         let payValue = document.getElementById('take-home-pay').value;
 
-          if (document.getElementById('take-home-pay').value.trim() == ""){
+        if (document.getElementById('take-home-pay').value.trim() == ""){
 
-            document.getElementById('continue-button').href = "universal-credit-take-home-pay-error";
+          document.getElementById('continue-button').href = "universal-credit-take-home-pay-error";
 
-          }  else if (payValue >= 0 && payValue <= 435){
-            
-            document.getElementById('continue-button').href = "done";
-          } else if (payValue > 435) {
-            document.getElementById('continue-button').href = "pregnant-or-given-birth";
-          }  else {
-            console.log('Error');
-          }
+        }  else if (payValue >= 0 && payValue <= 935){
+          
+          document.getElementById('continue-button').href = "done";
+        } else if (payValue > 935) {
+          document.getElementById('continue-button').href = "pregnant-or-given-birth";
         }
+      }
 
-
-        function dependentUrl(){
-          let payValue = document.getElementById('take-home-pay').value;
-
-          if (document.getElementById('take-home-pay').value.trim() == ""){
-
-            document.getElementById('continue-button').href = "universal-credit-take-home-pay-error";
-
-          }  else if (payValue >= 0 && payValue <= 935){
-            
-            document.getElementById('continue-button').href = "done";
-          } else if (payValue > 935) {
-            document.getElementById('continue-button').href = "pregnant-or-given-birth";
-          }  else {
-            console.log('Error');
-          }
-        }
-
-      </script>
+    </script>
 
       {% if data['universal-credit-claim'] == "no" %}
       <a class="nhsuk-button" id="continue-button"  onclick='urlSet();'> Continue </a>
