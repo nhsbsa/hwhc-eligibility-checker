@@ -8,9 +8,9 @@ const router = express.Router();
 const versionOne = require('./views/v1/check-for-help-paying-nhs-costs/routes')
 router.use('/v1', versionOne);
  
-/* //v2
+ //v2
 const versionTwo = require('./views/v2/check-for-help-paying-nhs-costs/routes')
-router.use('/v2', versionTwo); */
+router.use('/v2', versionTwo);
 
 /* *********************** Routes for Research *********************** */
 

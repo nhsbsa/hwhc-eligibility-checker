@@ -119,18 +119,6 @@ router.post("/august-2024/route-b/universal-credit-claim", function (req, res) {
 });
 
 // Universal credit take home pay
-
-function urlSet(){
-  let payValue = Number(document.getElementById('take-home-pay').value);
-  if (payValue > 0 && payValue <= 935){
-    document.getElementById('continue-button').href = "https://google.com";
-  } else if (payValue < 0 || payValue > 935) {
-    document.getElementById('continue-button').href = "https://bing.com";
-  } else {
-    console.log('Error');
-  }
-}
-
 /* router.post(
   "/august-2024/route-b/universal-credit-take-home-pay",
   function (req, res) {

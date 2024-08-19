@@ -24,13 +24,13 @@ Question page
                 </p>
                 <ul class="nhsuk-list nhsuk-error-summary__list">
                     <li>
-                        <a href="#error-summary-1">Please select if you claim any benefits</a>
+                        <a href="#error-summary-1">Select 'yes' if you are claim any benefits or tax credits</a>
                     </li>
                 </ul>
             </div>
         </div>
         <h1 class="nhsuk-fieldset__legend--l">
-                Do you claim any benefits?
+                Do you claim any benefits or tax credits?
             </h1>
         {% endif %}
 
@@ -45,13 +45,14 @@ Question page
                 </p>
                 <ul class="nhsuk-list nhsuk-error-summary__list">
                     <li>
-                        <a href="#error-summary-1">Please select if you or your partner claim any benefits</a>
+                        <a href="#error-summary-1">Select 'yes' if you or your partner claim any benefits or tax
+                            credits</a>
                     </li>
                 </ul>
             </div>
         </div>
         <h1 class="nhsuk-fieldset__legend--l">
-                Do you or your partner claim any benefits?
+                Do you or your partner claim any benefits or tax credits?
             </h1>
         {% endif %}
 
@@ -64,13 +65,15 @@ Question page
 
                     {% if data['partner'] == "no" %}
                     <span class="nhsuk-error-message" id="error-summary-1">
-                        <span class="nhsuk-u-visually-hidden">Error:</span> Please select if you claim any benefits
+                        <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you are claim any benefits
+                        or tax credits
                     </span>
                     {% endif %}
 
                     {% if data['partner'] == "yes" %}
                     <span class="nhsuk-error-message" id="error-summary-1">
-                        <span class="nhsuk-u-visually-hidden">Error:</span> Please select if you or your partner claim any benefits
+                        <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you or your partner claim
+                        any benefits or tax credits
                     </span>
                     {% endif %}
 

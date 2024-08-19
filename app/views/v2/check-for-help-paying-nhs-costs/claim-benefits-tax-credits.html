@@ -15,17 +15,17 @@ Question page
 
         {% if data['partner'] == "no" %}
         <h1 class="nhsuk-fieldset__legend--l">
-            Do you claim any benefits?
+            Do you claim any benefits or tax credits?
         </h1>
         {% endif %}
 
         {% if data['partner'] == "yes" %}
         <h1 class="nhsuk-fieldset__legend--l">
-            Do you or your partner claim any benefits?
+            Do you or your partner claim any benefits or tax credits?
         </h1>
         {% endif %}
 
-         <form action="claim-benefits" method="post">
+         <form action="claim-benefits-tax-credits" method="post">
 
             <div class="nhsuk-form-group">
 

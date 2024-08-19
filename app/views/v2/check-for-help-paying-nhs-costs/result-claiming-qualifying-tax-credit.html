@@ -1,0 +1,147 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {{ backLink({
+                "href": "javascript:history.go(-1)",
+                "text": "Go back"
+        }) }}
+
+        <div class="nhsuk-panel nhsuk-u-margin-bottom-5" style="background: #005EB8; margin-top: 0;">
+            <span class="nhsuk-caption-xl nhsuk-caption--top" style="text-align: center; color: white;">Based on what
+                you've told us</span>
+
+            <h1 class="nhsuk-panel__title" style="color: white;">
+                You get help with NHS costs
+            </h1>
+            <!--
+                              <div class="nhsuk-panel__body">
+                                Your reference number<br><strong>HDJ2123F</strong>
+                              </div>
+                              -->
+        </div>
+
+        {% if data['partner'] == "no" %}
+        <h1 class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Because you get qualifying tax credits and have a household income of £15,276 or less:</h1>
+        {% endif %}
+
+        {% if data['partner'] == "yes" %}
+        <h1 class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Because you and your partner get qualifying tax credits and have a household income of £15,276 or less:</h1>
+        {% endif %}
+
+				
+        <h2 class="nhsuk-heading-m">You get free:</h2>
+
+        <ul class="nhsuk-list nhsuk-list--tick">
+            <li>
+                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" aria-hidden="true">
+                    <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>
+                NHS prescriptions
+            </li>
+            <li>
+                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" aria-hidden="true">
+                    <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>
+                NHS dental check-ups and treatment
+            </li>
+            <li>
+                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" aria-hidden="true">
+                    <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>
+                sight tests
+            </li>
+            <li>
+                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" aria-hidden="true">
+                    <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>
+                NHS wigs and fabric supports
+            </li>
+        </ul>
+
+        <h2 class="nhsuk-heading-m">You get money off:</h2>
+
+        <ul class="nhsuk-list nhsuk-list--tick">
+            <li>
+                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" aria-hidden="true">
+                    <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>
+                new glasses or contact lenses
+            </li>
+            <li>
+                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" aria-hidden="true">
+                    <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>
+                repairing or replacing your glasses or contact lenses
+            </li>
+            <li>
+                <svg class="nhsuk-icon nhsuk-icon__tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    fill="none" aria-hidden="true">
+                    <path stroke-width="4" stroke-linecap="round" d="M18.4 7.8l-8.5 8.4L5.6 12"></path>
+                </svg>
+                travel for NHS treatment
+            </li>
+        </ul>
+
+
+        {% if data['partner'] == "no" %}
+        <div class="nhsuk-inset-text">
+            <span class="nhsuk-u-visually-hidden">Information: </span>
+            <p>Any children under 20 included on your tax credit claim are also entitled to the same help.</p>
+        </div>
+        {% endif %}
+
+        {% if data['partner'] == "yes" %}
+        <div class="nhsuk-inset-text">
+            <span class="nhsuk-u-visually-hidden">Information: </span>
+            <p>Your partner and any children under 20 included on your tax credit claim are also entitled to the same help.</p>
+        </div>
+        {% endif %}
+
+
+
+
+
+        <hr>
+
+        <h3 class="nhsuk-heading-m">How to get your help</h3>
+
+        <p>You don't have to do anything more, although you may have to show proof you get tax credit to your pharmacist, optician or dentist.</p>
+
+        <p>You can use your tax credit exemption certificate, this is a small plastic card that should have been sent to you.</p>
+
+        <p>If you have lost it, you can use your latest tax credit award notice as proof.</p>
+
+        <h3 class="nhsuk-heading-s">What your certificate looks like</h3>
+
+        <p><img src="/images/tc-excard.png" alt="what the tax credit exemption certificate looks like"></p>
+
+        <h3 class="nhsuk-heading-m">Feedback</h3>
+
+        <p><a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926">What did you think of this service?</a> (Takes
+            30 seconds)</p>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}
