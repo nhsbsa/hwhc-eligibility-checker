@@ -9,8 +9,8 @@ Question page
     <div class="nhsuk-grid-column-two-thirds">
 
         {{ backLink({
-            "href": "javascript:history.go(-1)",
-            "text": "Go back"
+        "href": "javascript:history.go(-1)",
+        "text": "Go back"
         }) }}
 
         {% if data['partner'] == "no" %}
@@ -25,7 +25,7 @@ Question page
         </h1>
         {% endif %}
 
-         <form action="tax-credit-type" method="post">
+        <form action="tax-credit-type" method="post">
 
             <div class="nhsuk-form-group">
 
@@ -84,9 +84,9 @@ Question page
                 </div>
             </details>
 
-            <button class="nhsuk-button" type="submit">
+            <a class="nhsuk-button" href="#" type="submit">
                 Continue
-            </button>
+            </a>
 
         </form>
 
