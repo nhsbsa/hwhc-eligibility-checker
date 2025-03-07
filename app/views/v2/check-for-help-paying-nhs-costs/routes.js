@@ -82,10 +82,10 @@ router.post('/check-for-help-paying-nhs-costs/partner', function (req, res) {
   var partner = req.session.data['partner']
 
   if (partner === "yes"){
-    res.redirect('claim-benefits-tax-credits')
+    res.redirect('claim-benefits')
   }
   else if (partner === "no") {
-    res.redirect('claim-benefits-tax-credits')
+    res.redirect('claim-benefits')
   }
   else {
     res.redirect('partner-error')
@@ -94,7 +94,7 @@ router.post('/check-for-help-paying-nhs-costs/partner', function (req, res) {
 })
 
 // Benefits
-router.post('/check-for-help-paying-nhs-costs/claim-benefits-tax-credits', function (req, res) {
+router.post('/check-for-help-paying-nhs-costs/claim-benefits', function (req, res) {
 
   var benefits = req.session.data['benefits']
 
@@ -105,7 +105,7 @@ router.post('/check-for-help-paying-nhs-costs/claim-benefits-tax-credits', funct
     res.redirect('pregnant-or-given-birth')
   }
   else {
-    res.redirect('claim-benefits-tax-credits-error')
+    res.redirect('claim-benefits-error')
   }
 
 })
