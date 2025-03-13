@@ -17,15 +17,8 @@ Question page
         <h1 class="nhsuk-fieldset__legend--l">
             What type of Pension Credit do you get?
         </h1>
-        {% endif %}
 
-        {% if data['partner'] == "yes" %}
-        <h1 class="nhsuk-fieldset__legend--l">
-            What type of Pension Credit do you or your partner get?
-        </h1>
-        {% endif %}
-
-         <form action="pension-credit-type" method="post">
+        <form action="pension-credit-type" method="post">
 
             <div class="nhsuk-form-group">
 
@@ -44,12 +37,12 @@ Question page
                                 <div class="nhsuk-details__text">
                                     <h4>Check your benefit payment letter</h4>
                                     <h5>Guarantee Credit</h5>
-                                    <p>Guarantee Credit tops up your weekly income if it's below £255.25.</p>
+                                    <p>Guarantee Credit tops up your weekly income if it's below {{ data.MinimumSingleGuaranteeCredit }}.</p>
                                     <h5>Savings Credit</h5>
                                     <p>Savings Credit is an extra payment for people who have saved some money towards their retirement, for example a pension.</p>
-                                    <p>The most in Savings Credit you can get per week £15.35.</p>
+                                    <p>The most in Savings Credit you can get per week {{ data.MaximumSingleSavingsCredit }}.</p>
                                     <p>If you're still unsure contact the <a target="_blank"
-                                            href="https://www.gov.uk/contact-pension-service">Pension Service helpline</a>.</p>
+                                            href="https://www.gov.uk/contact-pension-service">Pension Service helpline (opens in new tab)</a>.</p>
                                 </div>
                         </details>
 
@@ -70,7 +63,7 @@ Question page
                             <input class="nhsuk-radios__input" id="SC" name="pension-credit-type" type="radio" value="SC">
                             <label class="nhsuk-label nhsuk-radios__label" for="SC">
                                     Savings Credit<br>
-                                    <span class="nhsuk-hint nhsuk-u-margin-bottom-0">The maximum you can get per week is £15.35</span>
+                                    <span class="nhsuk-hint nhsuk-u-margin-bottom-0">The maximum you can get per week is {{ data.MaximumSingleSavingsCredit }}</span>
                             </label>
                         </div>
                     </div>
@@ -85,6 +78,74 @@ Question page
             </button>
 
         </form>
+        {% endif %}
+
+        {% if data['partner'] == "yes" %}
+        <h1 class="nhsuk-fieldset__legend--l">
+            What type of Pension Credit do you or your partner get?
+        </h1>
+
+         <form action="pension-credit-type" method="post">
+
+            <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+                        <span class="nhsuk-hint" id="example-hint">
+                                Pension Credit is a benefit with 2 parts - Guarantee Credit and Savings Credit.
+                        </span>
+
+                        <details class="nhsuk-details">
+                                <summary class="nhsuk-details__summary">
+                                    <span class="nhsuk-details__summary-text">
+                                        I'm not sure which type I get
+                                    </span>
+                                </summary>
+                                <div class="nhsuk-details__text">
+                                    <h4>Check your benefit payment letter</h4>
+                                    <h5>Guarantee Credit</h5>
+                                    <p>Guarantee Credit tops up your weekly income if it's below {{data.MinimumCoupleGuaranteeCredit}}.</p>
+                                    <h5>Savings Credit</h5>
+                                    <p>Savings Credit is an extra payment for people who have saved some money towards their retirement, for example a pension.</p>
+                                    <p>The most in Savings Credit you can get per week {{ data.MaximumCoupleSavingsCredit }}.</p>
+                                    <p>If you're still unsure contact the <a target="_blank"
+                                            href="https://www.gov.uk/contact-pension-service">Pension Service helpline (opens in new tab)</a>.</p>
+                                </div>
+                        </details>
+
+                    <div class="nhsuk-radios">
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="GC" name="pension-credit-type" type="radio" value="GC">
+                            <label class="nhsuk-label nhsuk-radios__label" for="GC">
+                                Guarantee Credit only
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="GCwithSC" name="pension-credit-type" type="radio" value="GCwithSC">
+                            <label class="nhsuk-label nhsuk-radios__label" for="GCwithSC">
+                                Guarantee Credit with Savings Credit
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="SC" name="pension-credit-type" type="radio" value="SC">
+                            <label class="nhsuk-label nhsuk-radios__label" for="SC">
+                                    Savings Credit<br>
+                                    <span class="nhsuk-hint nhsuk-u-margin-bottom-0">The maximum you can get per week is {{ data.MaximumCoupleSavingsCredit }}</span>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
+
+            <button class="nhsuk-button" type="submit">
+                Continue
+            </button>
+
+        </form>
+        {% endif %}
 
     </div>
 </div>
