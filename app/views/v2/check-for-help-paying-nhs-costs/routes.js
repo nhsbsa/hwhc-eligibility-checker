@@ -156,7 +156,7 @@ router.post('/check-for-help-paying-nhs-costs/universal-credit-take-home-pay', f
     res.redirect('done')
   }
   else if (universalcredittakehomepay === "no") {
-    res.redirect('universal-credit-take-home-pay')
+    res.redirect('pregnant-or-given-birth')
   }
   else {
     res.redirect('universal-credit-take-home-pay-error')
