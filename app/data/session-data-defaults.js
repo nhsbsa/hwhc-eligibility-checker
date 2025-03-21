@@ -17,9 +17,9 @@ module.exports = {
 
     PPC3MonthsCost: '£32.80',
 
-    PPC12MonthsCost: '£117.20',
+    PPC12MonthsCost: '£117.30',
 
-    PPCDirectDebitCost: '£11.72',
+    PPCDirectDebitCost: '£11.73',
 
     HealthyStart0to1Cost: '£8.50',
 
