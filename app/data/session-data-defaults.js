@@ -11,15 +11,15 @@ module.exports = {
 
     MaximumCoupleSavingsCredit: '£19.36',
 
-    NHSPrescriptionCost: '£10.15',
+    NHSPrescriptionCost: '£9.90',
 
-    HRTPPCCost: '£20.30',
+    HRTPPCCost: '£19.80',
 
-    PPC3MonthsCost: '£32.80',
+    PPC3MonthsCost: '£32.05',
 
-    PPC12MonthsCost: '£117.30',
+    PPC12MonthsCost: '£114.50',
 
-    PPCDirectDebitCost: '£11.73',
+    PPCDirectDebitCost: '£11.45',
 
     HealthyStart0to1Cost: '£8.50',
 
