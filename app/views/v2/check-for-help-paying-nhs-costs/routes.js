@@ -1,6 +1,7 @@
 // External dependencies
 const express = require('express');
 const router = express.Router();
+const { DateTime } = require('luxon');
  
 // Country
 router.post('/check-for-help-paying-nhs-costs/where-you-live', function (req, res) {
@@ -62,17 +63,21 @@ router.post('/check-for-help-paying-nhs-costs/live-in-highlands', function (req,
 // Date of birth
 router.post('/check-for-help-paying-nhs-costs/date-of-birth', function (req, res) {
 
-  var day = req.session.data['dob-day']
-  var month = req.session.data['dob-month']
-  var year = req.session.data['dob-year']
+  var day = req.session.data['dob-day'];
+  var month = req.session.data['dob-month'];
+  var year = req.session.data['dob-year'];
 
+  let destination = 'date-of-birth-error';
 
   if (day && month && year){
-    res.redirect('partner')
+    const dateOfBirth = DateTime.fromObject({ year: year, month: month, day: day });
+    console.log( dateOfBirth.isValid );
+    if( dateOfBirth.isValid ){
+      destination = 'partner';
+    }
   }
-  else {
-    res.redirect('date-of-birth-error')
-  }
+  
+  res.redirect( destination )
 
 })
 
