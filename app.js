@@ -4,6 +4,7 @@ const fs = require('fs');
 
 // External dependencies
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const express = require('express');
 const nunjucks = require('nunjucks');
@@ -23,8 +24,10 @@ const routes = require('./app/routes');
 const documentationRoutes = require('./docs/documentation_routes');
 const utils = require('./lib/utils');
 
+const prototypeAdminRoutes = require('./middleware/prototype-admin-routes');
+
 // Set configuration variables
-const port = process.env.PORT || config.port;
+const port = parseInt(process.env.PORT) || config.port;
 const useDocumentation = process.env.SHOW_DOCS || config.useDocumentation;
 const onlyDocumentation = process.env.DOCS_ONLY;
 
@@ -42,11 +45,16 @@ app.locals.useAutoStoreData = (useAutoStoreData === 'true');
 app.locals.useCookieSessionStore = (useCookieSessionStore === 'true');
 app.locals.serviceName = config.serviceName;
 
+// Use cookie middleware to parse cookies
+app.use(cookieParser());
+
 // Nunjucks configuration for application
 const appViews = [
   path.join(__dirname, 'app/views/'),
-  path.join(__dirname, 'node_modules/nhsuk-frontend/packages/components'),
   path.join(__dirname, 'docs/views/'),
+  path.join(__dirname, 'lib/prototype-admin/'),
+  path.join(__dirname, 'node_modules/nhsuk-frontend/packages/components'),
+  path.join(__dirname, 'node_modules/nhsuk-frontend/packages/macros'),
 ];
 
 const nunjucksConfig = {
@@ -70,6 +78,9 @@ const sessionOptions = {
     maxAge: 1000 * 60 * 60 * 4, // 4 hours
   },
 };
+
+// Authentication
+app.use(authentication);
 
 // Support session data in cookie or memory
 if (useCookieSessionStore === 'true' && !onlyDocumentation) {
@@ -132,12 +143,6 @@ if (!sessionDataDefaultsFileExists) {
     .pipe(fs.createWriteStream(sessionDataDefaultsFile));
 }
 
-// Check if the app is documentation only
-if (onlyDocumentation !== 'true') {
-  // Require authentication if not
-  app.use(authentication);
-}
-
 // Local variables
 app.use(locals(config));
 
@@ -175,6 +180,7 @@ if (useDocumentation || onlyDocumentation === 'true') {
   const docViews = [
     path.join(__dirname, 'docs/views/'),
     path.join(__dirname, 'node_modules/nhsuk-frontend/packages/components'),
+    path.join(__dirname, 'node_modules/nhsuk-frontend/packages/macros')
   ];
 
   nunjucksAppEnv = nunjucks.configure(docViews, {
@@ -212,6 +218,8 @@ app.post('/examples/passing-data/clear-data', (req, res) => {
   req.session.data = {};
   res.render('examples/passing-data/clear-data-success');
 });
+
+app.use('/prototype-admin', prototypeAdminRoutes);
 
 // Redirect all POSTs to GETs - this allows users to use POST for autoStoreData
 app.post(/^\/([^.]+)$/, (req, res) => {
