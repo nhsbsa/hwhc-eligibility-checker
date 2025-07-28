@@ -18,12 +18,9 @@ Question page
                 There is a problem
             </h2>
             <div class="nhsuk-error-summary__body">
-                <p>
-                    Check your answer. You must:
-                </p>
                 <ul class="nhsuk-list nhsuk-error-summary__list">
                     <li>
-                        <a href="#error-summary-1">Select 'yes' if your take-home pay was this amount or less</a>
+                        <a href="#error-summary-1">Select 'yes' if your total take-home pay was this amount or less</a>
                     </li>
                 </ul>
             </div>
@@ -31,13 +28,13 @@ Question page
 
         {% if data['partner'] == "no" %}
         <h1 class="nhsuk-fieldset__legend--l">
-                Was your take-home pay for your last Universal Credit period {% if data['universal-credit-claim'] == "yes" %}£935{% endif %}{% if data['universal-credit-claim'] == "no" %}£435{% endif %} or less?
+                Was your total take-home pay for your last Universal Credit period {% if data['universal-credit-claim'] == "yes" %}£935{% endif %}{% if data['universal-credit-claim'] == "no" %}£435{% endif %} or less?
             </h1>
         {% endif %}
 
         {% if data['partner'] == "yes" %}
         <h1 class="nhsuk-fieldset__legend--l">
-                Did you and your partner have a combined take-home pay of {% if data['universal-credit-claim'] == "yes" %}£935{% endif %}{% if data['universal-credit-claim'] == "no" %}£435{% endif %} or less in your last Universal Credit period?
+                Did you and your partner have a combined total take-home pay of {% if data['universal-credit-claim'] == "yes" %}£935{% endif %}{% if data['universal-credit-claim'] == "no" %}£435{% endif %} or less in your last Universal Credit period?
         </h1>
         {% endif %}
 
@@ -50,67 +47,23 @@ Question page
             <div class="nhsuk-form-group nhsuk-form-group--error">
                     <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
 
-                            <p>Take-home pay is used to work out your Universal Credit payments.</p>
-                            <p>If you don't work, your take-home pay will be £0.</p>
+                        <div class="nhsuk-hint" id="contact-hint" style="margin-bottom: 20px;">
+                            Total take-home pay is used to work out your Universal Credit payments.
+                        </div>
+
+                        <div class="nhsuk-hint" id="contact-hint" style="margin-bottom: 20px;">
+                            It is shown on your statement as 'Your total take-home pay for this period'.
+                        </div>
+
+                        <div class="nhsuk-hint" id="contact-hint" style="margin-bottom: 20px;">
+                            If you don't work, your total take-home pay will be £0.
+                        </div>
 
                             <span class="nhsuk-error-message" id="error-summary-1">
-                                    <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if your take-home pay was this amount or less
+                                    <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if your total take-home pay was this amount or less
                             </span>
         
-                            <details class="nhsuk-details">
-                                <summary class="nhsuk-details__summary">
-                                    <span class="nhsuk-details__summary-text">
-                                        Where to find your take-home pay
-                                    </span>
-                                </summary>
-                                <div class="nhsuk-details__text">
-        
-                                    <div class="nhsuk-grid-row">
-                                        <div class="nhsuk-grid-column-one-half">
-                                            <div class="nhsuk-care-card nhsuk-care-card--non-urgent  nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-0">
-                                                <div class="nhsuk-care-card__heading-container">
-                                                    <h3 class="nhsuk-care-card__heading"><span role="text">If you have a Universal Credit account online</span></h3>
-                                                    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
-                                                </div>
-                                                <div class="nhsuk-care-card__content">
-        
-                                                    <p>Your take-home pay is shown on your online Statement.</p>
-                                                    <p>It's under the heading <strong>'Other support you may be able to get'</strong>.</p>
-                                                    <br>
-        
-                                                    <img class="nhsuk-image__img" src="/images/uc-statement-online.svg"
-                                                        alt="Example of online Universal Credit statement">
-        
-        
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="nhsuk-grid-column-one-half">
-                                            <div class="nhsuk-care-card nhsuk-care-card--non-urgent nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-0">
-                                                <div class="nhsuk-care-card__heading-container">
-                                                    <h3 class="nhsuk-care-card__heading"><span role="text">If you get a monthly Universal Credit payment letter</span></h3>
-                                                    <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
-                                                </div>
-                                                <div class="nhsuk-care-card__content">
-        
-                                                        <p>Your take-home pay is shown on your Universal Credit monthly payment letter.</p>
-                                                        <p>It's usually on page 2 under the heading <strong>'3. We then take account of your take-home pay'</strong>.</p>
-            
-                                                        <img class="nhsuk-image__img" src="/images/uc-letter-statement.svg"
-                                                            alt="Example of monthly Universal Credit payment letter">
-        
-                                                            <br>
-            
-        
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-        
-        
-                                </div>
-                            </details>
-        
+                             
                             <div class="nhsuk-radios nhsuk-radios--inline">
                                 <div class="nhsuk-radios__item">
                                     <input class="nhsuk-radios__input" id="yes" name="universal-credit-take-home-pay" type="radio"

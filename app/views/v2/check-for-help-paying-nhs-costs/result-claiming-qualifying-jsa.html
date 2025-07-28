@@ -14,29 +14,26 @@ Question page
                 "text": "Go back"
         }) }}
 
-        <div class="nhsuk-panel nhsuk-u-margin-bottom-5" style="background: #005EB8; margin-top: 0;">
-            <span class="nhsuk-caption-xl nhsuk-caption--top" style="text-align: center; color: white;">Based on what
-                you've told us</span>
-
-            <h1 class="nhsuk-panel__title" style="color: white;">
-                You get help with NHS costs
+        <div class="done-panel">
+            <div class="nhsuk-heading-xl" id="completed">
+              <span class="done-tick" id="done-tick">Done</span>
+            </div>
+      
+            <h1 class="nhsuk-heading-l" style="color: white">
+              Based on what you've told us you can get help with NHS costs
             </h1>
-            <!--
-                              <div class="nhsuk-panel__body">
-                                Your reference number<br><strong>HDJ2123F</strong>
-                              </div>
-                              -->
+
         </div>
 
         {% if data['partner'] == "no" %}
-        <h1 class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Because you get income-based Jobseeker's Allowance:</h1>
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Because you get Income-based Jobseeker's Allowance:</h2>
         {% endif %}
 
         {% if data['partner'] == "yes" %}
-        <h1 class="nhsuk-caption-l nhsuk-u-margin-bottom-4">Because you or your partner get income-based Jobseeker's Allowance:</h1>
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Because you or your partner get Income-based Jobseeker's Allowance:</h2>
         {% endif %}
 				
-        <h2 class="nhsuk-heading-m">You get free:</h2>
+        <h3 class="nhsuk-heading-m">You get free:</h3>
 
         <ul class="nhsuk-list nhsuk-list--tick">
             <li>
@@ -69,7 +66,7 @@ Question page
             </li>
         </ul>
 
-        <h2 class="nhsuk-heading-m">You get money off:</h2>
+        <h3 class="nhsuk-heading-m">You get money off:</h3>
 
         <ul class="nhsuk-list nhsuk-list--tick">
             <li>
@@ -112,12 +109,12 @@ Question page
 
         <hr>
 
-        <h3 class="nhsuk-heading-m">How to get your help</h3>
+        <h2 class="nhsuk-heading-m">How to get your help</h2>
 
-        <p>In most cases, you don't have to do anything more, although you may have to show proof you get <strong>Income-based Jobseekers Allowance</strong> to your pharmacist, optician or dentist.</p>
+        <p>In most cases, you don't have to do anything more, although you may have to show proof you get Income-based Jobseekers Allowance to your pharmacist, optician or dentist.</p>
 
-        <p>You can use your latest benefit letter or award notice as proof. If you have lost yours contact the <a
-                href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus Helpline</a>.
+        <p>You can use your latest benefit letter or award notice as proof. If you have lost yours contact the 
+            <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims" target="_blank">Jobcentre Plus Helpline (opens in new tab)</a>.
         </p>
 
         <h3 class="nhsuk-heading-s">Help with travel for NHS treatment</h3>
@@ -138,10 +135,13 @@ Question page
                 you're not entitled.</p>
         </div>
 
-        <h3 class="nhsuk-heading-m">Feedback</h3>
 
-        <p><a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926">What did you think of this service?</a> (Takes
-            30 seconds)</p>
+        <h2 class="nhsuk-heading-m">Feedback</h2>
+
+        <p>Help us to improve the service by telling us about your experience.
+            <a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926" target="_blank"> Take our short survey (opens in new tab)</a>.
+          </p>
+          <p>The survey will take less than a minute to complete.</p>
 
 
 
