@@ -9,30 +9,69 @@ Question page
     "href": "javascript:history.go(-1)",
     "text": "Go back"
   }) }}
+
+
+  <style>
+      .nhsuk-back-link {
+        padding-top: 5px;
+        padding-bottom: 10px;
+        margin-bottom: -40px;
+      }
+
+            /* Mobile devices */
+            @media (max-width: 767px) {
+      .nhsuk-back-link {
+        padding-bottom: 30px;
+        }
+      }
+      
+      .app-example__heading {
+        background: #4c6272;
+        border: 0;
+        left: -1px;
+        position: absolute;
+        top: -1px;
+      }
+
+      .nhsuk-tag {
+        color: #fff;
+        display: inline-block;
+        font-size: .875rem;
+        font-weight: 600;
+        line-height: 1;
+        outline: 2px solid transparent;
+        outline-offset: -2px;
+        padding: 4px 8px;
+        text-decoration: none;
+      }
+
+      .nhsuk-card__content {
+        margin-top: 5px;
+      }
+
+  </style>
 {% endblock %}
 
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <div class="nhsuk-panel nhsuk-u-margin-bottom-5" style="background: #005EB8; margin-top: 0; padding: 30px;">
-            <h1 class="nhsuk-panel__title" style="color: white;">
-                <img src="/images/done-tick.png" style="width: 25px; padding-top: 5px;">
-                Done
+          <div class="nhsuk-panel">
+            <h1 class="nhsuk-panel__title" style="text-align: left;">
+              Check complete
             </h1>
-
-            <br>
-          
-            <h2 class="nhsuk-heading-l" style="color: white; text-align: center;">
-                Based on what you've told us, you could get help to pay for your NHS costs
-            </h2>
-          
+            <div class="nhsuk-panel__body" style="text-align: left;">
+              Based on what you've told us, you could get help to pay for your NHS costs
+            </div>
           </div>
 
 
+ 
           <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
           
             <div class="nhsuk-card__content">
+
+              <strong class="nhsuk-tag app-example__heading">Option 1</strong>
 
                 <h2 class="nhsuk-heading-m">
                     Apply for further help
@@ -58,7 +97,7 @@ Question page
                       <li>NHS wigs and fabric supports.</li>
                       <li>travel for NHS treatment.</li>
                   </ul>
-                  <a class="nhsuk-button" href="https://apply-for-help-with-nhs-costs.nhsbsa.nhs.uk/apply-online">Find out more</a>
+                  <p><a href="https://apply-for-help-with-nhs-costs.nhsbsa.nhs.uk/apply-online" target="_blank" rel="noopener">Find out more (opens in new tab)</a></p>
           
             </div>
           </div>
@@ -67,6 +106,8 @@ Question page
             <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
 
                 <div class="nhsuk-card__content">
+                  <strong class="nhsuk-tag app-example__heading">Option 2</strong>
+
                 <h2 class="nhsuk-heading-m">
                     Prepay for prescriptions
                   </h2>
@@ -86,7 +127,7 @@ Question page
                   <ul class="nhsuk-list nhsuk-list--bullet">
                       <li>NHS prescriptions</li>
                   </ul>
-                  <a class="nhsuk-button" href="https://ppc-new.herokuapp.com/updated-full-journey/v6/start">Find out more about a PPC</a>
+                  <p><a href="https://ppc-new.herokuapp.com/updated-full-journey/v6/start" target="_blank" rel="noopener">Find out more about a PPC (opens in new tab)</a></p>
           
             </div>
 
@@ -104,7 +145,7 @@ Question page
                   <ul class="nhsuk-list nhsuk-list--bullet">
                       <li>certain NHS HRT medicines <a href="https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/nhs-hormone-replacement-therapy-prescription-prepayment-certificate-hrt-ppc/medicines-covered-hrt-ppc" target="_blank" rel="noopener">(check if your HRT medicine is covered) (opens in new tab)</a>.</li>
                   </ul>
-                  <a class="nhsuk-button" href="https://hrt-ppc.herokuapp.com/v12/start">Find out more about an HRT PPC</a>
+                  <p><a href="https://hrt-ppc.herokuapp.com/v12/start" target="_blank" rel="noopener">Find out more about an HRT PPC (opens in new tab)</a></p>
           
             </div>
 

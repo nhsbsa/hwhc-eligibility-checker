@@ -18,6 +18,20 @@
 NHS.UK prototype kit
 {% endblock %}
 
+<!-- For the skip link -->
+{% block skipLink %}
+<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+<style>
+  /* new skip link format*/
+.nhsuk-skip-link:focus {
+  display: block;
+  position: static;
+}
+</style>
+
+{% endblock %}
+
 <!-- Header goes inside the header block -->
 <!-- More info and code for the header can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/header -->
 {% block header %}
@@ -30,6 +44,35 @@ NHS.UK prototype kit
       "showSearch": "false"
     })
   }}
+
+  <!-- PHASE BANNER -->
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-phase-banner">
+      <p class="nhsuk-phase-banner__content">
+        <strong class="nhsuk-tag nhsuk-phase-banner__content__tag"> BETA</strong>
+        <span class="nhsuk-phase-banner__text">This is a new service – your <a class="nhsuk-link" href="https://online1.snapsurveys.com/eligibility_checker" target="_blank" rel="noreferrer noopener">feedback (opens in new tab)</a> will help us to improve it.</span>
+      </p>
+    </div>
+  </div>
+
+  <style>
+
+      .nhsuk-phase-banner {
+        padding-top: 5px;
+      }
+      .nhsuk-phase-banner__text {
+        font-size: 16px; /* Desktop default */
+      }
+
+      /* Mobile devices */
+      @media (max-width: 767px) {
+      .nhsuk-phase-banner__text {
+        font-size: 14px;
+        }
+      }
+
+  </style>
+
 {% endblock %}
 
 <!-- Footer goes inside the footer block -->
