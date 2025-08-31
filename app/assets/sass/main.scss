@@ -1,10 +1,11 @@
 // Import NHS.UK frontend library
-@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+@import 'nhsuk-frontend/dist/nhsuk';
 
 // Components that are not in the NHS.UK frontend library
 @import 'components/panel-confirmation';
 @import 'components/list-border';
 @import 'components/related-nav';
+@import 'components/phase-banner';
 
 ///////////////////////////////////////////
 // Add your custom CSS/Sass styles below... 
@@ -18,9 +19,6 @@
 	margin: 0px 0px 30px 0px;
 }
 
-
-
-
 .done-tick {
   background-image: url(../images/done-tick.png);
   background-size: 40px;
@@ -28,3 +26,7 @@
   background-position: 0 px;
   padding-left: 60px;
  }
+
+.nhsuk-icon--tick {
+    fill: #007f3b;
+}

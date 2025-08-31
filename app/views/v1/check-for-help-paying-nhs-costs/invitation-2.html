@@ -4,14 +4,16 @@
 Question page
 {% endblock %}
 
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Go back'
+  }) }}
+{% endblock %}
+
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-        {{ backLink({
-            "href": "javascript:history.go(-1)",
-            "text": "Go back"
-        }) }}
 
         <span class="nhsuk-caption-xl nhsuk-caption--top">Based on what you've told us</span>
         <h1 class="nhsuk-u-margin-bottom-5">There are 2 ways that you could get help to pay for your NHS costs</h1>

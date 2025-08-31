@@ -4,6 +4,13 @@
 Question page
 {% endblock %}
 
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Go back'
+  }) }}
+{% endblock %}
+
 {% block content %}
 <script
   src="https://code.jquery.com/jquery-1.9.1.min.js"
@@ -16,11 +23,6 @@ $('.nhsuk-checkboxes__input').on('change', function() {
 </script>
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-        {{ backLink({
-            "href": "javascript:history.go(-1)",
-            "text": "Go back"
-        }) }}
 
         {% if data['partner'] == "no" %}
         <h1 class="nhsuk-fieldset__legend--l">

@@ -10,39 +10,22 @@
 <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 {% block head %}
 <link href="/css/main.css" rel="stylesheet">
-<script src="/nhsuk-frontend/nhsuk.min.js" defer></script>
 {% endblock %}
 
 <!-- Set the page title inside the pageTitle block -->
 {% block pageTitle %}
-NHS.UK prototype kit
-{% endblock %}
-
-<!-- For the skip link -->
-{% block skipLink %}
-<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
-
-<style>
-  /* test */
-  /* new skip link format*/
-.nhsuk-skip-link:focus {
-  display: block;
-  position: static;
-}
-</style>
-
+  {{ serviceName }}
 {% endblock %}
 
 <!-- Header goes inside the header block -->
 <!-- More info and code for the header can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/header -->
 {% block header %}
-{{ header({
-    "service": {
-        "name": "Check what help you could get to pay for NHS costs",
-        "href": "/"
-      },
-      "showNav": "false",
-      "showSearch": "false"
+
+  {{ header({
+    service: {
+        text: serviceName,
+        href: '/'
+      }
     })
   }}
 
@@ -56,61 +39,43 @@ NHS.UK prototype kit
     </div>
   </div>
 
-  <style>
-
-      .nhsuk-phase-banner {
-        padding-top: 5px;
-      }
-      .nhsuk-phase-banner__text {
-        font-size: 16px; /* Desktop default */
-      }
-
-      /* Mobile devices */
-      @media (max-width: 767px) {
-      .nhsuk-phase-banner__text {
-        font-size: 14px;
-        }
-      }
-
-  </style>
-
 {% endblock %}
 
 <!-- Footer goes inside the footer block -->
 {% block footer %}
 
-  <footer role="contentinfo">
-    <div class="nhsuk-footer-container" id="nhsuk-footer-container">
-      <div class="nhsuk-width-container">
-        <div class="nhsuk-grid-row">
-          <div class="nhsuk-grid-column-full">
-            <p class="nhsuk-u-secondary-text-color nhsuk-u-font-size-16">This website only stores the cookies that are needed to make it work. Read more about how <a href="/docs/cookies" class="nhsuk-footer__list-item-link">we use cookies.</a></p>
-          </div>
-        </div>
 
-        <div class="nhsuk-grid-row">
-          <div class="nhsuk-grid-column-full">
-            <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-            <ul class="nhsuk-footer__list">
-              <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhsbsa.nhs.uk/check-what-help-you-could-get-pay-nhs-costs-privacy-notice">Privacy</a></li>
-              <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhsbsa.nhs.uk/our-policies/cookies">Cookies</a></li>
-              <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="https://www.nhsbsa.nhs.uk/our-policies/terms-and-conditions">Terms and Conditions</a></li>
-            </ul>
-
-            <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+{{ footer({
+  meta: {
+    items: [
+      {
+        href: "https://www.nhsbsa.nhs.uk/check-what-help-you-could-get-pay-nhs-costs-privacy-notice",
+        text: "Privacy"
+      },
+      {
+        href: "https://www.nhsbsa.nhs.uk/our-policies/cookies",
+        text: "Cookies"
+      },
+      {
+        href: "https://www.nhsbsa.nhs.uk/our-policies/terms-and-conditions",
+        text: "Terms and conditions"
+      }
+    ]
+  }
+}) }}
 
 {% endblock %}
 
 {% block bodyEnd %}
-{% block scripts %}
-<!-- Custom JavaScript files can be added to this file -->
-{% include "includes/scripts.html" %}
-<!-- For adding page specific JavsScript -->
-{% block pageScripts %}{% endblock %}
-{% endblock %}
+  <script src="/nhsuk-frontend/nhsuk-frontend.min.js" type="module"></script>
+  <script type="module">
+    import { initAll } from '/nhsuk-frontend/nhsuk-frontend.min.js'
+    initAll()
+  </script>
+  {% block scripts %}
+    <!-- Custom JavaScript files can be added to this file -->
+    {% include "includes/scripts.html" %}
+    <!-- For adding page specific JavaScript -->
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
 {% endblock %}
