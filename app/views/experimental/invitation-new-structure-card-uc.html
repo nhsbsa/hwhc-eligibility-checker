@@ -1,0 +1,166 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+
+  <style>
+      
+      .app-example__heading {
+        border: 0;
+        left: -1px;
+        position: absolute;
+        top: -1px;
+      }
+
+      .app-example__heading_2 {
+        border: 1 #212B32;
+        left: -1px;
+        position: absolute;
+        top: -1px;
+        border-color: #212B32;
+        background: white;
+        color: #212B32;
+      }
+
+
+      .nhsuk-card__content {
+        margin-top: 5px;
+      }
+
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+          <div class="nhsuk-panel">
+            <h1 class="nhsuk-panel__title" style="text-align: left;">
+              Check complete
+            </h1>
+            <div class="nhsuk-panel__body" style="text-align: left;">
+              Based on what you've told us, you could get help to pay for your NHS costs
+            </div>
+          </div>
+
+
+
+          <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
+          
+            <div class="nhsuk-card__content">
+
+              <strong class="nhsuk-tag app-example__heading">Recommended for you</strong>
+
+                <h2 class="nhsuk-heading-m" style="margin-top: 10px;">
+                    Universal Credit
+                  </h2>
+
+                  <p>You get Universal Credit and your total take-home pay was less than £935 in this assessment period.</p>
+
+                  <div class="nhsuk-inset-text">
+                    <span class="nhsuk-u-visually-hidden">Information: </span>
+                    <p>Your partner and any children under 20 included on your Universal Credit claim are also covered.</p>
+                  </div>
+
+                  <h3 class="nhsuk-heading-s">What it includes</h3>
+                  <div class="nhsuk-grid-row">
+                    <div class="nhsuk-grid-column-one-half">
+                      <p class="nhsuk-heading-xs">You get free:</p>
+                      <ul>
+                        <li>
+                          NHS prescriptions
+                        </li>
+                        <li>                    
+                          NHS dental check-ups and treatment
+                        </li>
+                        <li>
+                          sight tests
+                        </li>
+                        <li>
+                          NHS wigs and fabric supports
+                        </li>
+                      </ul> 
+                    </div>
+  
+                    <div class="nhsuk-grid-column-one-half">
+                      <p class="nhsuk-heading-xs">You get money off:</p>
+                      <ul>
+                        <li>
+                          new glasses or contact lenses
+                        </li>
+                        <li>
+                          repairing or replacing your glasses or contact lenses
+                        </li>
+                        <li>
+                          travel for NHS treatment
+                        </li>
+                      </ul> 
+                    </div>
+                  </div>
+
+                  <div class="nhsuk-warning-callout">
+                    <h3 class="nhsuk-warning-callout__label"> <span role="text">
+                        <span class="nhsuk-u-visually-hidden">Important: </span>
+                        Warning
+                      </span> </h3>
+                    <p>Your total take-home pay changes each assessment period. To avoid any possible penalty charge, check before you claim.</p>
+                  </div>
+
+
+                  <h3 class="nhsuk-heading-s">How to get your help</h3>
+                  <p>Use your help when you get NHS care. If you're asked for proof, show your latest Universal Credit award notice (either the letter or on your online account) to your pharmacist, optician or dentist.</p>
+                  
+
+                  <p><a href="https://apply-for-help-with-nhs-costs.nhsbsa.nhs.uk/apply-online" target="_blank" rel="noopener">Find out more about Universal Credit (opens in new tab)</a></p>
+          
+            </div>
+          </div>
+
+
+          <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
+      
+            <div class="nhsuk-card__content">
+    
+              <strong class="nhsuk-tag app-example__heading_2">Good to know</strong>
+    
+                <h2 class="nhsuk-heading-m" style="margin-top: 10px;">
+                    Get help to buy food and milk (Healthy Start)
+                  </h2>
+    
+                  <p>You may be able to get Healthy Start if you're at least 10 weeks pregnant or have children under 4.</p>
+    
+         
+                  <p>You could get:</p>
+          
+                  <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>{{ data.HealthyStart10WeeksCost }} for each week of your pregnancy from 10 weeks.</li>
+                    <li>{{ data.HealthyStart0to1Cost }} each week for children from birth to 1 year old.</li>
+                    <li>{{ data.HealthyStart1to4Cost }} each week for children between 1 and 4 years old.</li>
+                  </ul>
+    
+                  <h3 class="nhsuk-heading-s">What it includes</h3>
+                  <ul>
+                    <li>NHS Healthy Start prepaid card for healthy food and milk.</li>
+                    <li>free vitamin supplements.</li>
+                  </ul>
+                      
+                  <p>Find out more about who qualifies and <a href="https://www.healthystart.nhs.uk/" target="_blank" rel="noopener">apply for Healthy Start (opens in new tab)</a>.</p>
+          
+            </div>
+          </div>
+
+
+
+        <h2 class="nhsuk-heading-m">Feedback</h2>
+
+        <p>Help us improve by telling us about your experience. <a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926" target="_blank" rel="noopener">Take our short survey (opens in new tab)</a>.</p>
+
+        <p>The survey will take less than a minute to complete.</p>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -21,6 +21,8 @@ module.exports = {
 
     PPCDirectDebitCost: '£11.45',
 
+    HealthyStart10WeeksCost: '£4.25',
+
     HealthyStart0to1Cost: '£8.50',
 
     HealthyStart1to4Cost: '£4.25'
