@@ -1,0 +1,141 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-panel">
+        <h1 class="nhsuk-panel__title" style="text-align: left;">
+          Check complete
+        </h1>
+        <div class="nhsuk-panel__body" style="text-align: left;">
+          Based on what you've told us, you could get help to pay for your NHS costs
+        </div>
+      </div>
+
+
+
+
+      <div class="nhsuk-inset-text">
+        <h2 class="nhsuk-heading-m">
+          Feedback
+        </h2>
+
+          <p>Help us improve this service by telling us about your experience. <a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926">Take our short survey (opens in new tab)</a>.</p>
+
+      </div>
+
+
+          <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
+          
+            <div class="nhsuk-card__content">
+
+                <h2 class="nhsuk-heading-m">
+                    Apply for further help
+                  </h2>
+
+                  <p>You could be entitled to further help depending on your circumstances.</p>
+                  
+                  <p>You can apply for help to pay for your NHS costs.</p>
+                  
+                  <p>Your household income will be taken into account as well as your council tax and housing costs.</p>
+
+                  <p>You don't have to be claiming benefits to apply.</p>
+
+                  <p>Any help you get also covers your partner and children under 19.</p>
+
+                  <h3 class="nhsuk-heading-s">You may also get help paying for:</h3>
+                  <ul class="nhsuk-list nhsuk-list--bullet">
+                      <li>NHS prescriptions.</li>
+                      <li>NHS dental treatment.</li>
+                      <li>sight tests.</li>
+                      <li>new glasses or contact lenses.</li>
+                      <li>repairing or replacing your glasses or contact lenses.</li>
+                      <li>NHS wigs and fabric supports.</li>
+                      <li>travel for NHS treatment.</li>
+                  </ul>
+                  <a class="nhsuk-button" href="https://apply-for-help-with-nhs-costs.nhsbsa.nhs.uk/apply-online">Find out more</a>
+          
+            </div>
+          </div>
+
+
+            <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
+
+                <div class="nhsuk-card__content">
+                <h2 class="nhsuk-heading-m">
+                    Prepay for prescriptions
+                  </h2>
+
+                  <h3 class="nhsuk-heading-s">
+                    Prescription Prepayment Certificate (PPC)
+                  </h3>
+
+                  <p>Save money on NHS prescriptions by prepaying for them.</p>
+                  <p>You can pay a set price for prescriptions for 3 or 12 months, no matter how many you need.</p>
+                  <p>A prescription costs {{ data.NHSPrescriptionCost }} per item, but prepayment costs:</p>
+                  <ul class="nhsuk-list nhsuk-list--bullet">
+                      <li>{{ data.PPC3MonthsCost }} for 3 months</li>
+                      <li>{{ data.PPC12MonthsCost }} for 12 months<br>(or 10 payments of {{ data.PPCDirectDebitCost }})</li>
+                  </ul>
+                  <h4 class="nhsuk-heading-s">You will only get help with:</h4>
+                  <ul class="nhsuk-list nhsuk-list--bullet">
+                      <li>NHS prescriptions</li>
+                  </ul>
+                  <a class="nhsuk-button" href="https://ppc-new.herokuapp.com/updated-full-journey/v6/start">Find out more about a PPC</a>
+          
+            </div>
+
+            <hr style="margin-top: 10px; margin-bottom: 10px;">
+
+            <div class="nhsuk-card__content">
+
+                  <h3 class="nhsuk-heading-s">
+                    Hormone Replacement Therapy Prescription Prepayment Certificate (HRT PPC)
+                  </h3>
+
+                  <p>You can pay a set price of {{ data.HRTPPCCost }}, this covers you for an unlimited number of certain HRT prescriptions for 12 months.</p>
+
+                  <h4 class="nhsuk-heading-s">You will only get help with:</h4>
+                  <ul class="nhsuk-list nhsuk-list--bullet">
+                      <li>certain NHS HRT medicines <a href="https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/nhs-hormone-replacement-therapy-prescription-prepayment-certificate-hrt-ppc/medicines-covered-hrt-ppc" target="_blank" rel="noopener">(check if your HRT medicine is covered) (opens in new tab)</a>.</li>
+                  </ul>
+                  <a class="nhsuk-button" href="https://hrt-ppc.herokuapp.com/v12/start">Find out more about an HRT PPC</a>
+          
+            </div>
+
+          </div>
+
+
+
+          <h2 class="nhsuk-heading-m">
+            If you have children under 4 years old
+          </h2>
+          
+          <p>You may be able to get help to buy healthy food and milk as part of the Healthy Start scheme.</p>
+          
+          <p>You could get:</p>
+          
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>{{ data.HealthyStart0to1Cost }} each week for children from birth to 1 year old.</li>
+            <li>{{ data.HealthyStart1to4Cost }} each week for children between 1 and 4 years old.</li>
+          </ul>
+
+          <p>You could also get free vitamin supplements.</p>
+          
+          <p>Find out more about who qualifies and <a href="https://www.healthystart.nhs.uk/" target="_blank" rel="noopener">apply for Healthy Start (opens in new tab)</a>.</p>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
