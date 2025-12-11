@@ -101,39 +101,31 @@ router.post('/check-for-help-paying-nhs-costs/partner', function (req, res) {
 // Benefits
 router.post('/check-for-help-paying-nhs-costs/claim-benefits', function (req, res) {
 
-  var benefits = req.session.data['benefits']
+  const benefitType = req.session.data['benefitType'];
+  const ucStatus = req.session.data['receiveUniversalCredit'];
 
-  if (benefits === "yes"){
-    res.redirect('paid-universal-credit')
+  if (benefitType === "pension-credit"){
+    res.redirect('pension-credit-type')
   }
-  else if (benefits === "no") {
+  else if (benefitType === "universal-credit") {
+      if (ucStatus === "yes") {
+        return res.redirect('universal-credit-claim');
+      }
+  
+      if (ucStatus === "not-yet") {
+        return res.redirect('universal-credit-not-yet');
+      }
+  
+      return res.redirect('uc-select-error');
+  }
+  else if (benefitType === "none") {
     res.redirect('pregnant-or-given-birth')
   }
-  else {
-    res.redirect('claim-benefits-error')
-  }
+
+  return res.redirect('claim-benefits-error');
 
 })
 
-// Universal credit
-router.post('/check-for-help-paying-nhs-costs/universal-credit', function (req, res) {
-
-  var universalcredit = req.session.data['universal-credit']
-
-  if (universalcredit === "yes"){
-    res.redirect('universal-credit-claim')
-  }
-  else if (universalcredit === "not-yet") {
-    res.redirect('universal-credit-not-yet')
-  }
-  else if (universalcredit === "no"){
-      res.redirect('benefits')
-  }
-  else {
-    res.redirect('paid-universal-credit-error')
-  }
-
-})
 
 // Universal credit claim
 router.post('/check-for-help-paying-nhs-costs/universal-credit-claim', function (req, res) {
@@ -169,37 +161,37 @@ router.post('/check-for-help-paying-nhs-costs/universal-credit-take-home-pay', f
 
 })
 
-// Do you get any of these benefits?
-router.post('/check-for-help-paying-nhs-costs/benefits', function (req, res) {
+// // Do you get any of these benefits?
+// router.post('/check-for-help-paying-nhs-costs/benefits', function (req, res) {
 
-var benefits = req.session.data['benefits']
+// var benefits = req.session.data['benefits']
 
-if (benefits.includes('employment-support-allowance') && benefits.includes('job-seekers-allowance')) {
-  res.redirect('benefits-ESA-JSA-error')
-}
+// if (benefits.includes('employment-support-allowance') && benefits.includes('job-seekers-allowance')) {
+//   res.redirect('benefits-ESA-JSA-error')
+// }
 
-else if (benefits.includes('income-support')) {
-  res.redirect('result-claiming-qualifying-income-support')
-}
-else if (benefits.includes('tax-credits')) {
-  res.redirect('tax-credit-type')
-}
-else if (benefits.includes('employment-support-allowance')) {
-  res.redirect('employment-support-allowance-type')
-}
-else if (benefits.includes('job-seekers-allowance')) {
-  res.redirect('jobseekers-allowance-type')
-}
-else if (benefits.includes('pension-credit')) {
-  res.redirect('pension-credit-type')
-}
-else if (benefits === "no-benefits") {
-  res.redirect('pregnant-or-given-birth')
-}
-else {
-  res.redirect('benefits-error')
-}
-})
+// else if (benefits.includes('income-support')) {
+//   res.redirect('result-claiming-qualifying-income-support')
+// }
+// else if (benefits.includes('tax-credits')) {
+//   res.redirect('tax-credit-type')
+// }
+// else if (benefits.includes('employment-support-allowance')) {
+//   res.redirect('employment-support-allowance-type')
+// }
+// else if (benefits.includes('job-seekers-allowance')) {
+//   res.redirect('jobseekers-allowance-type')
+// }
+// else if (benefits.includes('pension-credit')) {
+//   res.redirect('pension-credit-type')
+// }
+// else if (benefits === "no-benefits") {
+//   res.redirect('pregnant-or-given-birth')
+// }
+// else {
+//   res.redirect('benefits-error')
+// }
+// })
 
 // Tax credits
 router.post('/check-for-help-paying-nhs-costs/tax-credit-type', function (req, res) {

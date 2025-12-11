@@ -25,7 +25,7 @@ Question page
             <div class="nhsuk-error-summary__body">
               <ul class="nhsuk-list nhsuk-error-summary__list">
                 <li>
-                  <a href="#example-error-1">Select the type of benefits you claim or if you don't get any of these</a>
+                  <a href="#example-error-1">Select 'yes' if you receive Universal Credit payment</a>
                 </li>
               </ul>
             </div>
@@ -40,30 +40,32 @@ Question page
         <form action="claim-benefits" method="post">
 
 
-            <div class="nhsuk-form-group nhsuk-form-group--error">
+            <div class="nhsuk-form-group">
                 <fieldset class="nhsuk-fieldset" aria-describedby="example-divider-hint">
-
-                  <span id="example-error-error" class="nhsuk-error-message">
-                    <span class="nhsuk-u-visually-hidden">Error:</span> Select the type of benefits you claim or if you don't get any of these
-                  </span>
                   
                   <div class="nhsuk-radios" data-module="nhsuk-radios">
                     <div class="nhsuk-radios__item">
-                      <input class="nhsuk-radios__input" id="example-error-1" name="benefitType" type="radio" value="pension-credit">
+                      <input class="nhsuk-radios__input" id="example" name="benefitType" type="radio" value="pension-credit">
                       <label class="nhsuk-label nhsuk-radios__label" for="example-divider">
                         Pension Credit
                       </label>
                     </div>
                     <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="contact-2" name="benefitType" type="radio" value="universal-credit" aria-controls="conditional-contact-2">
+                        <input class="nhsuk-radios__input" id="contact-2" name="benefitType" type="radio" value="universal-credit" aria-controls="conditional-contact-2" checked>
                         <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
                           Universal Credit
                         </label>
                       </div>
+
                       <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
-                        <div class="nhsuk-radios" data-module="nhsuk-radios">
+                                              
+                      <span id="example-error-error" class="nhsuk-error-message">
+                        <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you receive Universal Credit payment
+                      </span>
+
+                        <div class="nhsuk-radios nhsuk-form-group--error" data-module="nhsuk-radios">
                             <div class="nhsuk-radios__item">
-                              <input class="nhsuk-radios__input" id="example" name="receiveUniversalCredit" type="radio" value="yes">
+                              <input class="nhsuk-radios__input" id="example-error-1" name="receiveUniversalCredit" type="radio" value="yes">
                               <label class="nhsuk-label nhsuk-radios__label" for="example">
                                 Yes, I receive Universal Credit payment
                               </label>
@@ -134,7 +136,7 @@ Question page
             <div class="nhsuk-error-summary__body">
               <ul class="nhsuk-list nhsuk-error-summary__list">
                 <li>
-                  <a href="#example-error-1">Select the type of benefits you or your partner claims or if you or your partner don't get any of these</a>
+                  <a href="#example-error-1">Select 'yes' if you or your partner receive Universal Credit payment</a>
                 </li>
               </ul>
             </div>
@@ -149,12 +151,8 @@ Question page
         <form action="claim-benefits" method="post">
 
 
-            <div class="nhsuk-form-group nhsuk-form-group--error">
+            <div class="nhsuk-form-group">
                 <fieldset class="nhsuk-fieldset" aria-describedby="example-divider-hint">
-
-                  <span id="example-error-error" class="nhsuk-error-message">
-                    <span class="nhsuk-u-visually-hidden">Error:</span> Select the type of benefits you or your partner claims or if you or your partner don't get any of these
-                  </span>
 
                   <div class="nhsuk-radios" data-module="nhsuk-radios">
                     <div class="nhsuk-radios__item">
@@ -164,13 +162,18 @@ Question page
                       </label>
                     </div>
                     <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-controls="conditional-contact-2">
+                        <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-controls="conditional-contact-2" checked>
                         <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
                           Universal Credit
                         </label>
                       </div>
                       <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
-                        <div class="nhsuk-radios" data-module="nhsuk-radios">
+
+                        <span id="example-error-error" class="nhsuk-error-message">
+                          <span class="nhsuk-u-visually-hidden">Error:</span> Select 'yes' if you or your partner receive Universal Credit payment
+                        </span>
+
+                        <div class="nhsuk-radios nhsuk-form-group--error" data-module="nhsuk-radios">
                             <div class="nhsuk-radios__item">
                               <input class="nhsuk-radios__input" id="example" name="example" type="radio" value="yes">
                               <label class="nhsuk-label nhsuk-radios__label" for="example">
