@@ -15,15 +15,17 @@ Question page
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        {% if data['partner'] == "no" %}
-            <h1 class="nhsuk-fieldset__legend--l">
-                Do you live permanently in a care home?
-            </h1>
-        {% endif %}
+        
 
         {% if data['partner'] == "yes" %}
+            <!-- PARTNER -->
             <h1 class="nhsuk-fieldset__legend--l">
                 Do you or your partner live permanently in a care home?
+            </h1>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Do you live permanently in a care home?
             </h1>
         {% endif %}
 

@@ -32,15 +32,17 @@ Question page
             </div>
         </div>
 
-        {% if data['partner'] == "no" %}
-        <h1 class="nhsuk-fieldset__legend--l">
-                As part of your Universal Credit, do you have any of these?
-            </h1>
-        {% endif %}
+        
 
         {% if data['partner'] == "yes" %}
-        <h1 class="nhsuk-fieldset__legend--l">
+            <!-- PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
                 As part of your joint Universal Credit, do you have any of these?
+            </h1>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                As part of your Universal Credit, do you have any of these?
             </h1>
         {% endif %}
 

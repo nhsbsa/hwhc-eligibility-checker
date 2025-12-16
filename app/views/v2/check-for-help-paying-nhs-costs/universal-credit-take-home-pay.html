@@ -15,16 +15,18 @@ Question page
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        {% if data['partner'] == "no" %}
-        <h1 class="nhsuk-fieldset__legend--l">
-                Was your total take-home pay for your last Universal Credit period {% if data['universal-credit-claim'] == "yes" %}£935{% endif %}{% if data['universal-credit-claim'] == "no" %}£435{% endif %} or less?
-            </h1>
-        {% endif %}
+        
 
         {% if data['partner'] == "yes" %}
-        <h1 class="nhsuk-fieldset__legend--l">
-                Did you and your partner have a combined total take-home pay of {% if data['universal-credit-claim'] == "yes" %}£935{% endif %}{% if data['universal-credit-claim'] == "no" %}£435{% endif %} or less in your last Universal Credit period?
-        </h1>
+            <!-- PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Did you and your partner have a combined total take-home pay of {% if data['universal-credit-claim'] == "yes" %}£935{% else %}£435{% endif %} or less in your last Universal Credit period?
+            </h1>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Was your total take-home pay for your last Universal Credit period {% if data['universal-credit-claim'] == "yes" %}£935{% else %}£435{% endif %} or less?
+            </h1>
         {% endif %}
 
     </div>

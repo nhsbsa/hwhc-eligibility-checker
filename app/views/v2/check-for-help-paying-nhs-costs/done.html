@@ -31,29 +31,40 @@ Question page
                               -->
     </div>
 
-    {% if data['partner'] == "no" %} {% if data['universal-credit-claim'] ==
-    "yes"%}
-    <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
-      Because you get Universal Credit and your total take-home pay was less than
-      £935.00:
-    </h2>
-    {% endif %} {% if data['universal-credit-claim'] == "no"%}
-    <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
-      Because you get Universal Credit and your total take-home pay was less than
-      £435.00:
-    </h2>
-    {% endif %} {% endif %} {% if data['partner'] == "yes" %} {% if
-    data['universal-credit-claim'] == "yes"%}
-    <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
-      Because you or your partner get Universal Credit and your total take-home pay
-      was less than £935.00:
-    </h2>
-    {% endif %} {% if data['universal-credit-claim'] == "no"%}
-    <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
-      Because you or your partner get Universal Credit and your total take-home pay
-      was less than £435.00:
-    </h2>
-    {% endif %} {% endif %}
+    
+    
+    {% if data['partner'] == "yes" %}
+
+      <!-- PARTNER -->
+      {% if data['universal-credit-claim'] == "yes" %}
+      <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+        Because you or your partner get Universal Credit and your total take-home pay
+        was less than £935.00:
+      </h2>
+      {% else %}
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+          Because you or your partner get Universal Credit and your total take-home pay
+          was less than £435.00:
+        </h2>
+      {% endif %}
+
+    {% else %}
+
+      <!-- NO PARTNER -->
+
+      {% if data['universal-credit-claim'] == "yes" %}
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+          Because you get Universal Credit and your total take-home pay was less than
+          £935.00:
+        </h2>
+      {% else %}
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+          Because you get Universal Credit and your total take-home pay was less than
+          £435.00:
+        </h2>
+      {% endif %}
+    
+    {% endif %}
 
     <h3 class="nhsuk-heading-m">You get free:</h3>
 
@@ -177,22 +188,25 @@ Question page
       </li>
     </ul>
 
-    {% if data['partner'] == "no" %}
-    <div class="nhsuk-inset-text">
-      <span class="nhsuk-u-visually-hidden">Information: </span>
-      <p>
-        Any children under 20 included on your Universal Credit claim are also
-        entitled to the same help.
-      </p>
-    </div>
-    {% endif %} {% if data['partner'] == "yes" %}
-    <div class="nhsuk-inset-text">
-      <span class="nhsuk-u-visually-hidden">Information: </span>
-      <p>
-        Your partner and any children under 20 included on your Income-based
-        Jobseekers Allowance claim are also entitled to the same help.
-      </p>
-    </div>
+    
+    {% if data['partner'] == "yes" %}
+      <!-- PARTNER -->
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>
+          Your partner and any children under 20 included on your Income-based
+          Jobseekers Allowance claim are also entitled to the same help.
+        </p>
+      </div>
+    {% else %}
+      <!-- NO PARTNER -->
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>
+          Any children under 20 included on your Universal Credit claim are also
+          entitled to the same help.
+        </p>
+      </div>
     {% endif %}
 
     <hr />

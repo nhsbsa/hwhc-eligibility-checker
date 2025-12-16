@@ -15,15 +15,17 @@ Question page
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        {% if data['partner'] == "no" %}
-            <h1 class="nhsuk-fieldset__legend--l">
-                    Do you have more than {% if data['local-council-assessed'] == "no" %}£23,250{% else %}£16,000{% endif %} in savings, investments or property?
-            </h1>
-        {% endif %}
+        
 
         {% if data['partner'] == "yes" %}
+            <!-- PARTNER -->
             <h1 class="nhsuk-fieldset__legend--l">
-                    Do you and your partner have more than {% if data['local-council-assessed'] == "no" %}£23,250{% else %}£16,000{% endif %} in savings, investments or property?
+                Do you and your partner have more than {% if data['local-council-assessed'] == "no" %}£23,250{% else %}£16,000{% endif %} in savings, investments or property?
+            </h1>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Do you have more than {% if data['local-council-assessed'] == "no" %}£23,250{% else %}£16,000{% endif %} in savings, investments or property?
             </h1>
         {% endif %}
 

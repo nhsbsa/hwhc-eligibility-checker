@@ -27,12 +27,14 @@ Question page
 
         </div>
 
-        {% if data['partner'] == "no" %}
-        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Because you get Income-based Jobseeker's Allowance:</h2>
-        {% endif %}
+        
 
         {% if data['partner'] == "yes" %}
-        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Because you or your partner get Income-based Jobseeker's Allowance:</h2>
+            <!-- PARTNER -->
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Because you or your partner get Income-based Jobseeker's Allowance:</h2>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Because you get Income-based Jobseeker's Allowance:</h2>
         {% endif %}
 				
         <h3 class="nhsuk-heading-m">You get free:</h3>
@@ -95,18 +97,20 @@ Question page
         </ul>
 
 
-        {% if data['partner'] == "no" %}
-        <div class="nhsuk-inset-text">
-            <span class="nhsuk-u-visually-hidden">Information: </span>
-            <p>Any children under 20 included on your Income-based Jobseekers Allowance claim are also entitled to the same help.</p>
-        </div>
-        {% endif %}
+        
 
         {% if data['partner'] == "yes" %}
-        <div class="nhsuk-inset-text">
-            <span class="nhsuk-u-visually-hidden">Information: </span>
-            <p>Your partner and any children under 20 included on your Income-based Jobseekers Allowance claim are also entitled to the same help.</p>
-        </div>
+            <!-- PARTNER -->
+            <div class="nhsuk-inset-text">
+                <span class="nhsuk-u-visually-hidden">Information: </span>
+                <p>Your partner and any children under 20 included on your Income-based Jobseekers Allowance claim are also entitled to the same help.</p>
+            </div>
+        {% else %}
+            <!-- NO PARTNER -->
+            <div class="nhsuk-inset-text">
+                <span class="nhsuk-u-visually-hidden">Information: </span>
+                <p>Any children under 20 included on your Income-based Jobseekers Allowance claim are also entitled to the same help.</p>
+            </div>
         {% endif %}
 
         <hr>

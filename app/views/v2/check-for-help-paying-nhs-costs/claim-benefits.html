@@ -15,177 +15,182 @@ Question page
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        {% if data['partner'] == "no" %}
-        <h1 class="nhsuk-fieldset__legend--l">
-            Do you claim any benefits?
-        </h1>
         
-        <form action="claim-benefits" method="post">
-
-
-            <div class="nhsuk-form-group">
-                <fieldset class="nhsuk-fieldset" aria-describedby="example-divider-hint">
-
-                  <div class="nhsuk-radios" data-module="nhsuk-radios">
-                    <div class="nhsuk-radios__item">
-                      <input class="nhsuk-radios__input" id="example-divider" name="benefitType" type="radio" value="pension-credit">
-                      <label class="nhsuk-label nhsuk-radios__label" for="example-divider">
-                        Pension Credit
-                      </label>
-                    </div>
-                    <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="contact-2" name="benefitType" type="radio" value="universal-credit" aria-controls="conditional-contact-2">
-                        <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
-                          Universal Credit
-                        </label>
-                      </div>
-                      <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
-                        <div class="nhsuk-radios" data-module="nhsuk-radios">
-                            <div class="nhsuk-radios__item">
-                              <input class="nhsuk-radios__input" id="example" name="receiveUniversalCredit" type="radio" value="yes">
-                              <label class="nhsuk-label nhsuk-radios__label" for="example">
-                                Yes, I receive Universal Credit payment
-                              </label>
-                            </div>
-                            <div class="nhsuk-radios__item">
-                              <input class="nhsuk-radios__input" id="example-2" name="receiveUniversalCredit" type="radio" value="not-yet">
-                              <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                                Not yet, but I've applied
-                              </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="nhsuk-radios__divider">or</div>
- 
-                    <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="example-divider-4" name="benefitType" type="radio" value="none">
-                        <label class="nhsuk-label nhsuk-radios__label" for="example-divider-4">
-                            No, I don't get any of these
-                        </label>
-                    </div>
-                  </div>
-                </fieldset>
-              </div>
-
-                <details class="nhsuk-details">
-                    <summary class="nhsuk-details__summary">
-                        <span class="nhsuk-details__summary-text">
-                            If your benefit isn't listed or has recently changed
-                        </span>
-                    </summary>
-                    <div class="nhsuk-details__text">
-                        <h4>We don't ask about these benefits because they do not entitle you to help with NHS costs:</h4>
-                        <ul>
-                            <li>AFIP (Armed Forces Independence Payment)</li>
-                            <li>Attendance Allowance</li>
-                            <li>Carer's Allowance</li>
-                            <li>Child Benefit</li>
-                            <li>Council Tax Benefit</li>
-                            <li>DLA (Disability Living Allowance)</li>
-                            <li>Employment and Support Allowance (ESA)</li>
-                            <li>Housing Benefit</li>
-                            <li>Incapacity Benefit</li>
-                            <li>Income Support</li>
-                            <li>Jobseeker's Allowance (JSA)</li>
-                            <li>PIP (Personal Independence Payment)</li>
-                        </ul>
-                        <p>It's important you know what benefit you get. If you're not sure contact the <a target="_blank"
-                                href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus
-                                Helpline (opens in new tab)</a>.</p>
-                    </div>
-                </details>
-
-            <button class="nhsuk-button" type="submit">
-                Continue
-            </button>
-
-        </form>
-        {% endif %}
 
         {% if data['partner'] == "yes" %}
-        <h1 class="nhsuk-fieldset__legend--l">
-            Do you or your partner claim any benefits?
-        </h1>
+        
+          <!-- PARTNER -->
+          <h1 class="nhsuk-fieldset__legend--l">
+              Do you or your partner claim any benefits?
+          </h1>
 
-        <form action="claim-benefits" method="post">
+          <form action="claim-benefits" method="post">
 
 
-            <div class="nhsuk-form-group">
-                <fieldset class="nhsuk-fieldset" aria-describedby="example-divider-hint">
+              <div class="nhsuk-form-group">
+                  <fieldset class="nhsuk-fieldset" aria-describedby="example-divider-hint">
 
-                  <div class="nhsuk-radios" data-module="nhsuk-radios">
-                    <div class="nhsuk-radios__item">
-                      <input class="nhsuk-radios__input" id="example-divider" name="exampleDivider" type="radio" value="yes">
-                      <label class="nhsuk-label nhsuk-radios__label" for="example-divider">
-                        Pension Credit
-                      </label>
-                    </div>
-                    <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-controls="conditional-contact-2">
-                        <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
-                          Universal Credit
+                    <div class="nhsuk-radios" data-module="nhsuk-radios">
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="example-divider" name="exampleDivider" type="radio" value="yes">
+                        <label class="nhsuk-label nhsuk-radios__label" for="example-divider">
+                          Pension Credit
                         </label>
                       </div>
-                      <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
-                        <div class="nhsuk-radios" data-module="nhsuk-radios">
-                            <div class="nhsuk-radios__item">
-                              <input class="nhsuk-radios__input" id="example" name="example" type="radio" value="yes">
-                              <label class="nhsuk-label nhsuk-radios__label" for="example">
-                                Yes, we receive Universal Credit payment
-                              </label>
+                      <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-controls="conditional-contact-2">
+                          <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+                            Universal Credit
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
+                          <div class="nhsuk-radios" data-module="nhsuk-radios">
+                              <div class="nhsuk-radios__item">
+                                <input class="nhsuk-radios__input" id="example" name="example" type="radio" value="yes">
+                                <label class="nhsuk-label nhsuk-radios__label" for="example">
+                                  Yes, we receive Universal Credit payment
+                                </label>
+                              </div>
+                              <div class="nhsuk-radios__item">
+                                <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="not-yet">
+                                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                                  Not yet, but we've applied
+                                </label>
+                              </div>
                             </div>
-                            <div class="nhsuk-radios__item">
-                              <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="not-yet">
-                              <label class="nhsuk-label nhsuk-radios__label" for="example-2">
-                                Not yet, but we've applied
-                              </label>
-                            </div>
+                        </div>
+
+                      <div class="nhsuk-radios__divider">or</div>
+              
+                      <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="example-divider-4" name="exampleDivider" type="radio" value="none">
+                          <label class="nhsuk-label nhsuk-radios__label" for="example-divider-4">
+                              No, we don't get any of these
+                          </label>
+                        </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+                  <details class="nhsuk-details">
+                      <summary class="nhsuk-details__summary">
+                          <span class="nhsuk-details__summary-text">
+                              If your benefit isn't listed or has recently changed
+                          </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                          <h4>We don't ask about these benefits because they do not entitle you to help with NHS costs:</h4>
+                          <ul>
+                              <li>PIP (Personal Independence Payment)</li>
+                              <li>AFIP (Armed Forces Independence Payment)</li>
+                              <li>DLA (Disability Living Allowance)</li>
+                              <li>Incapacity Benefit</li>
+                              <li>Attendance Allowance</li>
+                              <li>Carer's Allowance</li>
+                              <li>Housing Benefit</li>
+                              <li>Child Benefit</li>
+                              <li>Council Tax Benefit</li>
+                          </ul>
+                          <p>It's important you know what benefit you get. If you're not sure contact the <a target="_blank"
+                                  href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus
+                                  Helpline (opens in new tab)</a>.</p>
+                      </div>
+                  </details>
+
+              <button class="nhsuk-button" type="submit">
+                  Continue
+              </button>
+
+          </form>
+
+        {% else %}
+
+          <!-- NO PARTNER -->
+          <h1 class="nhsuk-fieldset__legend--l">
+              Do you claim any benefits?
+          </h1>
+          
+          <form action="claim-benefits" method="post">
+
+
+              <div class="nhsuk-form-group">
+                  <fieldset class="nhsuk-fieldset" aria-describedby="example-divider-hint">
+
+                    <div class="nhsuk-radios" data-module="nhsuk-radios">
+                      <div class="nhsuk-radios__item">
+                        <input class="nhsuk-radios__input" id="example-divider" name="benefitType" type="radio" value="pension-credit">
+                        <label class="nhsuk-label nhsuk-radios__label" for="example-divider">
+                          Pension Credit
+                        </label>
+                      </div>
+                      <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="contact-2" name="benefitType" type="radio" value="universal-credit" aria-controls="conditional-contact-2">
+                          <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+                            Universal Credit
+                          </label>
+                        </div>
+                        <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
+                          <div class="nhsuk-radios" data-module="nhsuk-radios">
+                              <div class="nhsuk-radios__item">
+                                <input class="nhsuk-radios__input" id="example" name="receiveUniversalCredit" type="radio" value="yes">
+                                <label class="nhsuk-label nhsuk-radios__label" for="example">
+                                  Yes, I receive Universal Credit payment
+                                </label>
+                              </div>
+                              <div class="nhsuk-radios__item">
+                                <input class="nhsuk-radios__input" id="example-2" name="receiveUniversalCredit" type="radio" value="not-yet">
+                                <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                                  Not yet, but I've applied
+                                </label>
+                              </div>
                           </div>
                       </div>
 
-                    <div class="nhsuk-radios__divider">or</div>
-            
-                    <div class="nhsuk-radios__item">
-                        <input class="nhsuk-radios__input" id="example-divider-4" name="exampleDivider" type="radio" value="none">
-                        <label class="nhsuk-label nhsuk-radios__label" for="example-divider-4">
-                            No, we don't get any of these
-                        </label>
+                      <div class="nhsuk-radios__divider">or</div>
+  
+                      <div class="nhsuk-radios__item">
+                          <input class="nhsuk-radios__input" id="example-divider-4" name="benefitType" type="radio" value="none">
+                          <label class="nhsuk-label nhsuk-radios__label" for="example-divider-4">
+                              No, I don't get any of these
+                          </label>
                       </div>
-                  </div>
-                </fieldset>
-              </div>
-
-                <details class="nhsuk-details">
-                    <summary class="nhsuk-details__summary">
-                        <span class="nhsuk-details__summary-text">
-                            If your benefit isn't listed or has recently changed
-                        </span>
-                    </summary>
-                    <div class="nhsuk-details__text">
-                        <h4>We don't ask about these benefits because they do not entitle you to help with NHS costs:</h4>
-                        <ul>
-                            <li>PIP (Personal Independence Payment)</li>
-                            <li>AFIP (Armed Forces Independence Payment)</li>
-                            <li>DLA (Disability Living Allowance)</li>
-                            <li>Incapacity Benefit</li>
-                            <li>Attendance Allowance</li>
-                            <li>Carer's Allowance</li>
-                            <li>Housing Benefit</li>
-                            <li>Child Benefit</li>
-                            <li>Council Tax Benefit</li>
-                        </ul>
-                        <p>It's important you know what benefit you get. If you're not sure contact the <a target="_blank"
-                                href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus
-                                Helpline (opens in new tab)</a>.</p>
                     </div>
-                </details>
+                  </fieldset>
+                </div>
 
-            <button class="nhsuk-button" type="submit">
-                Continue
-            </button>
+                  <details class="nhsuk-details">
+                      <summary class="nhsuk-details__summary">
+                          <span class="nhsuk-details__summary-text">
+                              If your benefit isn't listed or has recently changed
+                          </span>
+                      </summary>
+                      <div class="nhsuk-details__text">
+                          <h4>We don't ask about these benefits because they do not entitle you to help with NHS costs:</h4>
+                          <ul>
+                              <li>AFIP (Armed Forces Independence Payment)</li>
+                              <li>Attendance Allowance</li>
+                              <li>Carer's Allowance</li>
+                              <li>Child Benefit</li>
+                              <li>Council Tax Benefit</li>
+                              <li>DLA (Disability Living Allowance)</li>
+                              <li>Employment and Support Allowance (ESA)</li>
+                              <li>Housing Benefit</li>
+                              <li>Incapacity Benefit</li>
+                              <li>Income Support</li>
+                              <li>Jobseeker's Allowance (JSA)</li>
+                              <li>PIP (Personal Independence Payment)</li>
+                          </ul>
+                          <p>It's important you know what benefit you get. If you're not sure contact the <a target="_blank"
+                                  href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus
+                                  Helpline (opens in new tab)</a>.</p>
+                      </div>
+                  </details>
 
-        </form>
+              <button class="nhsuk-button" type="submit">
+                  Continue
+              </button>
+
+          </form>
         {% endif %}
 
     </div>

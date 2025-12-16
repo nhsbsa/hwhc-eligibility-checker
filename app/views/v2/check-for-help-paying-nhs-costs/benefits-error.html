@@ -15,42 +15,44 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        {% if data['partner'] == "no" %}
-        <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
-                <h2 class="nhsuk-error-summary__title" id="error-summary-title">
-                    There is a problem
-                </h2>
-                <div class="nhsuk-error-summary__body">
-                    <ul class="nhsuk-list nhsuk-error-summary__list">
-                        <li>
-                            <a href="#error-summary-1">Select which benefit you get or select 'No, I don't get any of these'</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-        <h1 class="nhsuk-fieldset__legend--l">
-            Do you get any of these benefits?
-        </h1>
-        {% endif %}
+        
 
         {% if data['partner'] == "yes" %}
-        <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
-                <h2 class="nhsuk-error-summary__title" id="error-summary-title">
-                    There is a problem
-                </h2>
-                <div class="nhsuk-error-summary__body">
-                    <ul class="nhsuk-list nhsuk-error-summary__list">
-                        <li>
-                            <a href="#error-summary-1">Select which benefit you get or select 'No, we don't get any of these'</a>
-                        </li>
-                    </ul>
+            <!-- PARTNER -->
+            <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+                    <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+                        There is a problem
+                    </h2>
+                    <div class="nhsuk-error-summary__body">
+                        <ul class="nhsuk-list nhsuk-error-summary__list">
+                            <li>
+                                <a href="#error-summary-1">Select which benefit you get or select 'No, we don't get any of these'</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-        <h1 class="nhsuk-fieldset__legend--l">
-            Do you or your partner get any of these benefits?
-        </h1>
+            <h1 class="nhsuk-fieldset__legend--l">
+                Do you or your partner get any of these benefits?
+            </h1>
+        {% else %}
+            <!-- NO PARTNER -->
+            <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+                    <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+                        There is a problem
+                    </h2>
+                    <div class="nhsuk-error-summary__body">
+                        <ul class="nhsuk-list nhsuk-error-summary__list">
+                            <li>
+                                <a href="#error-summary-1">Select which benefit you get or select 'No, I don't get any of these'</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            <h1 class="nhsuk-fieldset__legend--l">
+                Do you get any of these benefits?
+            </h1>
         {% endif %}
 
         <span class="nhsuk-hint" id="nationality-hint">
@@ -98,24 +100,26 @@
                         </div>
                         <div class="nhsuk-radios__divider">or</div>
 
-                        {% if data['partner'] == "no" %}
-                        <div class="nhsuk-checkboxes__item">
-                            <input class="nhsuk-checkboxes__input" id="no-benefits" name="benefits" type="checkbox"
-                                value="no-benefits">
-                            <label class="nhsuk-label nhsuk-checkboxes__label" for="no-benefits">
-                                No, I don't get any of these
-                            </label>
-                        </div>
-                        {% endif %}
+                        
 
                         {% if data['partner'] == "yes" %}
-                        <div class="nhsuk-checkboxes__item">
-                            <input class="nhsuk-checkboxes__input" id="no-benefits" name="benefits" type="checkbox"
-                                value="no-benefits">
-                            <label class="nhsuk-label nhsuk-checkboxes__label" for="no-benefits">
-                                No, we don't get any of these
-                            </label>
-                        </div>
+                            <!-- PARTNER -->
+                            <div class="nhsuk-checkboxes__item">
+                                <input class="nhsuk-checkboxes__input" id="no-benefits" name="benefits" type="checkbox"
+                                    value="no-benefits">
+                                <label class="nhsuk-label nhsuk-checkboxes__label" for="no-benefits">
+                                    No, we don't get any of these
+                                </label>
+                            </div>
+                        {% else %}
+                            <!-- NO PARTNER -->
+                            <div class="nhsuk-checkboxes__item">
+                                <input class="nhsuk-checkboxes__input" id="no-benefits" name="benefits" type="checkbox"
+                                    value="no-benefits">
+                                <label class="nhsuk-label nhsuk-checkboxes__label" for="no-benefits">
+                                    No, I don't get any of these
+                                </label>
+                            </div>
                         {% endif %}
 
                     </div>

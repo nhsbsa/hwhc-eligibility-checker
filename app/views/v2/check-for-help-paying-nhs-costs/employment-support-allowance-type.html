@@ -15,16 +15,18 @@ Question page
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        {% if data['partner'] == "no" %}
-        <h1 class="nhsuk-fieldset__legend--l">
-            Which type of Employment and Support Allowance (ESA) do you get?
-        </h1>
-        {% endif %}
+        
 
         {% if data['partner'] == "yes" %}
-        <h1 class="nhsuk-fieldset__legend--l">
-            Which type of Employment and Support Allowance (ESA) do you or your partner get?
-        </h1>
+            <!-- PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Which type of Employment and Support Allowance (ESA) do you or your partner get?
+            </h1>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Which type of Employment and Support Allowance (ESA) do you get?
+            </h1>
         {% endif %}
 
          <form action="employment-support-allowance-type" method="post">
