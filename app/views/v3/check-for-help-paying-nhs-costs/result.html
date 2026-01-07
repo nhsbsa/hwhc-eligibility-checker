@@ -1,0 +1,194 @@
+{% extends 'layout-done.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-panel nhsuk-u-margin-bottom-5" style="background: #005EB8; margin-top: 0;">
+                <span class="nhsuk-caption-xl nhsuk-caption--top" style="text-align: center; color: white;">Based on what
+                    you've told us</span>
+    
+                <h1 class="nhsuk-panel__title" style="color: white;">
+                    You get help with NHS costs
+                </h1>
+                <!--
+                                  <div class="nhsuk-panel__body">
+                                    Your reference number<br><strong>HDJ2123F</strong>
+                                  </div>
+                                  -->
+            </div>
+
+        <h2 class="nhsuk-heading-m">You get free:</h2>
+        <ul class="nhsuk-list nhsuk-list--tick">
+                {% if (data['war-pensioner'] == "yes") or (data['list-of-medical-conditions'] == "yes") or (data['pregnant'] == "yes") %}
+                <li>
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                        <path d="M11.4 18.8a2 2 0 0 1-2.7.1h-.1L4 14.1a1.5 1.5 0 0 1 2.1-2L10 16l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"></path>
+                    </svg>
+                    NHS prescriptions
+                    <br><span class="nhsuk-hint">
+
+                    {% if data['war-pensioner'] == "yes" %}
+                    If you have a valid war pension exemption certificate and your prescription is for your accepted disablement
+                    {% endif %}
+
+                    {% if data['list-of-medical-conditions'] == "yes" %}
+                    If you have a valid medical exemption certificate
+                    {% endif %}
+
+                    {% if data['pregnant'] == "yes" %}
+                    If you have a valid maternity exemption certificate
+                    {% endif %}
+
+                    </span>
+                </li>
+                {% endif %}
+                {% if (data['glaucoma'] == "yes") or (data['diabetes'] == "yes") %}
+                <li>
+                        <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                            <path d="M11.4 18.8a2 2 0 0 1-2.7.1h-.1L4 14.1a1.5 1.5 0 0 1 2.1-2L10 16l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"></path>
+                        </svg>
+                        sight tests
+                </li>
+                {% endif %}
+                {% if (data['war-pensioner'] == "yes") or (data['list-of-medical-conditions'] == "yes") or (data['pregnant'] == "yes") %}
+                <li>
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                        <path d="M11.4 18.8a2 2 0 0 1-2.7.1h-.1L4 14.1a1.5 1.5 0 0 1 2.1-2L10 16l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"></path>
+                    </svg>
+                    NHS wigs and fabric supports
+                    <br><span class="nhsuk-hint">
+
+                    {% if data['war-pensioner'] == "yes" %}
+                    If you have a valid war pension exemption certificate and your prescription is for your accepted disablement
+                    {% endif %}
+
+                    {% if data['list-of-medical-conditions'] == "yes" %}
+                    If you have a valid medical exemption certificate
+                    {% endif %}
+
+                    {% if data['pregnant'] == "yes" %}
+                    If you can show proof that you're pregnant or have given birth in the last 12 months
+                    {% endif %}
+
+                    </span>
+                </li>
+                {% endif %}
+            </ul>
+
+            <hr>
+
+            <h3 class="nhsuk-heading-m">How to get your help</h3>
+
+            {% if data['pregnant'] == "yes" %}
+            <h4 class="nhsuk-heading-xs">Maternity exemption certificate</h4>
+
+            <p>Because you are pregnant or have given birth in the last 12 months you get free prescriptions.</p>
+            
+            <p>You may need to show a valid maternity exemption certificate. Get an application form from your midwife, GP or health visitor.</p>
+
+            <p>You can apply while you're pregnant and up to a year after your baby was born.</p>
+
+            <details class="nhsuk-details">
+                    <summary class="nhsuk-details__summary">
+                        <span class="nhsuk-details__summary-text">
+                            Loss of a baby-prescriptions
+                        </span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                        <p>If you lost your baby after the 24th week of your pregnancy, you can still apply for a maternity exemption certificate.</p>
+                        <p>If you have a miscarriage, abortion or stillborn birth you can use your maternity exemption certificate until it expires.</p>
+                    </div>
+                </details>
+            <h4 class="nhsuk-heading-xs">NHS dental check-ups and treatment</h4>
+            <p>You may need to show proof of your pregnancy, or that you have given birth in the past 12 months. You can show:</p>
+            <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>a valid maternity exemption certificate</li>
+                <li>a MATB1 certificate issued by your midwife or GP</li>
+                <li>your child's birth certificate</li>
+                <li>a notification of birth form – the midwife who delivers your baby will give you this form</li>
+                <li>a stillbirth certificate - issued by your local registrar of births, marriages and deaths</li>
+            </ul>
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text">
+                        Loss of a baby-dental care
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                    <p>If you lost your baby before the 24th week of your pregnancy, you're not entitled to free dental treatment.</p>
+                </div>
+            </details>
+                
+            {% endif %}
+            
+
+            {% if data['list-of-medical-conditions'] == "yes" %}
+            <h4 class="nhsuk-heading-xs">Medical exemption certificate</h4>
+
+            <p>Because you have a listed long-term medical condition you get free prescriptions.</p>
+            
+            <p>You may need to show a valid medical exemption certificate.</p>
+
+            <p>Speak to your GP about your medical condition, who can apply for you.</p>
+            {% endif %}
+
+            {% if (data['glaucoma'] == "yes") or (data['diabetes'] == "yes") %}
+            <h4 class="nhsuk-heading-xs">Sight tests</h4>
+
+            <p>Because you have {% if data['diabetes'] == "yes" %}diabetes{% else %}glaucoma{% endif %} you get free sight tests.</p>
+
+            <p>To arrange a free sight test contact your local optician.</p>
+            {% endif %}
+
+            {% if data['war-pensioner'] == "yes" %}
+            <h4 class="nhsuk-heading-xs">War pension exemption certificate</h4>
+    
+            <p>If you have an illness or injury caused by service in the armed forces, you need to contact <a href="https://www.gov.uk/government/organisations/veterans-uk" target="_blank">Veterans UK</a> to find out about the help you are entitled to.</p>
+            {% endif %}
+
+
+        <div class="nhsuk-care-card__content nhsuk-u-margin-bottom-4">
+                <h2>Apply for further help</h2>
+                <h3>You could get further help depending on your financial circumstances.</h3>
+                <p>You don’t have to be claiming benefits to apply. People on low incomes with jobs may
+                    be eligible. We take your total household income into account as well as your Council Tax
+                    and housing costs.</p>
+                <h3>You may get help paying for:
+                </h3>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>NHS prescriptions</li>
+                    <li>NHS dental check-ups and treatment</li>
+                    <li>sight tests</li>
+                    <li>new glasses or contact lenses</li>
+                    <li>repairing or replacing your glasses or contact lenses</li>
+                    <li>NHS wigs and fabric supports</li>
+                    <li>travel for NHS treatment</li>
+                </ul>
+                <p>Any help you get covers your partner and dependant children under 19.</p>
+                <a class="nhsuk-button" href="https://low-income-support.herokuapp.com/apply/iteration-1/apply-online-invite">Find out more</a>
+                </button>
+
+            </div>
+            <h3 class="nhsuk-heading-m">Feedback</h3>
+
+            <p><a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926">What did you think of this service?</a> (Takes
+                30 seconds)</p>
+    
+
+
+    </div>
+</div>
+
+{% endblock %}

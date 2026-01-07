@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Start page template - NHS.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">
+            You can't use this service because you live in Northern Ireland
+        </h1>
+
+        <p>
+            You can find information about getting help with health costs at <a href="https://www.nidirect.gov.uk/articles/help-with-health-costs">NIdirect.gov.uk</a>.
+        </p>
+
+        <hr>
+
+        <h2 class="nhsuk-heading-m">Feedback</h2>
+
+        <p><a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926">What did you think of this service?</a> (Takes 30 seconds)</p>
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,170 @@
+{% extends 'layout-done.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <div class="done-panel">
+      <div class="nhsuk-heading-xl" id="completed">
+        <span class="done-tick" id="done-tick">Done</span>
+      </div>
+
+      <h1 class="nhsuk-heading-l" style="color: white">
+        Based on what you've told us you can get help with NHS costs
+      </h1>
+      <!--
+                              <div class="nhsuk-panel__body">
+                                Your reference number<br><strong>HDJ2123F</strong>
+                              </div>
+                              -->
+    </div>
+
+    
+    
+    {% if data['partner'] == "yes" %}
+
+      <!-- PARTNER -->
+      {% if data['universal-credit-claim'] == "yes" %}
+      <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+        Because you or your partner get Universal Credit and your total take-home pay
+        was less than £935.00:
+      </h2>
+      {% else %}
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+          Because you or your partner get Universal Credit and your total take-home pay
+          was less than £435.00:
+        </h2>
+      {% endif %}
+
+    {% else %}
+
+      <!-- NO PARTNER -->
+
+      {% if data['universal-credit-claim'] == "yes" %}
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+          Because you get Universal Credit and your total take-home pay was less than
+          £935.00:
+        </h2>
+      {% else %}
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+          Because you get Universal Credit and your total take-home pay was less than
+          £435.00:
+        </h2>
+      {% endif %}
+    
+    {% endif %}
+
+
+    {% set tickIcon = '<svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+        <path d="M11.4 18.8a2 2 0 0 1-2.7.1h-.1L4 14.1a1.5 1.5 0 0 1 2.1-2L10 16l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"></path>
+      </svg>' %}
+
+    <h3 class="nhsuk-heading-m">You get free:</h3>
+
+    <ul class="nhsuk-list nhsuk-list--tick">
+      <li>{{ tickIcon | safe }}NHS prescriptions</li>
+      <li>{{ tickIcon | safe }}NHS dental check-ups and treatment</li>
+      <li>{{ tickIcon | safe }}sight tests</li></li>
+      <li>{{ tickIcon | safe }}NHS wigs and fabric supports
+      </li>
+    </ul>
+
+    <h3 class="nhsuk-heading-m">You get money off:</h3>
+
+    <ul class="nhsuk-list nhsuk-list--tick">
+      <li>{{ tickIcon | safe }}new glasses or contact lenses</li>
+      <li>{{ tickIcon | safe }}repairing or replacing your glasses or contact lenses</li>
+      <li>{{ tickIcon | safe }}travel for NHS treatment</li>
+    </ul>
+
+    
+    {% if data['partner'] == "yes" %}
+      <!-- PARTNER -->
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>
+          Your partner and any children under 20 included on your Income-based
+          Jobseekers Allowance claim are also entitled to the same help.
+        </p>
+      </div>
+    {% else %}
+      <!-- NO PARTNER -->
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>
+          Any children under 20 included on your Universal Credit claim are also
+          entitled to the same help.
+        </p>
+      </div>
+    {% endif %}
+
+    <hr />
+
+    <div class="nhsuk-warning-callout">
+      <h3 class="nhsuk-warning-callout__label">Warning</h3>
+      <p>
+        Your total take-home pay changes each assessment period. To avoid any possible
+        penalty charge, check before you claim.
+      </p>
+    </div>
+
+    <h2 class="nhsuk-heading-m">How to get your help</h2>
+    <p>
+      You don't have to do anything more, although you may have
+      to show proof you get Universal Credit to your pharmacist,
+      optician or dentist. You can use your latest Universal Credit award notice as proof, 
+      this can be either the letter or on your online account.
+    </p>
+
+    <h2 class="nhsuk-heading-m">
+      If you're at least 10 weeks pregnant or have children under 4 years old
+    </h2>
+
+    <p>
+      You may be able to get help to buy healthy food and milk as part of the
+      Healthy Start scheme.
+    </p>
+
+    <p>You could get:</p>
+
+    <ul>
+      <li>
+        £4.25 each week of your pregnancy from the 10th week
+      </li>
+      <li>
+        £8.50 each week for children from birth to 1 year old
+      </li>
+      <li>
+        £4.25 each week for children between 1 and 4 years old
+      </li>
+    </ul>
+    <p>
+      You could also get free vitamin supplements.
+    </p>
+
+    <p>
+      Find out more about who qualifies and <a href="https://www.healthystart.nhs.uk/how-to-apply/" target="_blank">apply for Healthy Start (opens in new tab)</a>.
+    </p>
+
+    <h2 class="nhsuk-heading-m">Feedback</h2>
+
+    <p>Help us to improve the service by telling us about your experience.
+      <a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926" target="_blank"> Take our short survey (opens in new tab)</a>.
+    </p>
+    <p>The survey will take less than a minute to complete.</p>
+  </div>
+</div>
+
+{% endblock %}

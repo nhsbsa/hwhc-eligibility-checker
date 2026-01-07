@@ -1,0 +1,100 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        
+
+        {% if data['partner'] == "yes" %}
+            <!-- PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Which type of tax credits do you or your partner get?
+            </h1>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Which type of tax credits do you get?
+            </h1>
+        {% endif %}
+
+        <form action="tax-credit-type" method="post">
+
+            <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+                    <div class="nhsuk-radios">
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="WTCandCTC" name="tax-credit-type" type="radio"
+                                value="WTCandCTC">
+                            <label class="nhsuk-label nhsuk-radios__label" for="WTCandCTC">
+                                Working Tax Credit and Child Tax Credit together
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="WTC-Disability" name="tax-credit-type" type="radio"
+                                value="WTC-Disability">
+                            <label class="nhsuk-label nhsuk-radios__label" for="WTC-Disability">
+                                Working Tax Credit on its own, including a disability element
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="CTC" name="tax-credit-type" type="radio" value="CTC">
+                            <label class="nhsuk-label nhsuk-radios__label" for="CTC">
+                                Child Tax Credit on its own
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="WTC" name="tax-credit-type" type="radio" value="WTC">
+                            <label class="nhsuk-label nhsuk-radios__label" for="WTC">
+                                Working Tax Credit on its own
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text">
+                        I'm not sure what type I get
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                    <p>To find out what help with NHS costs you're entitled to, it's important that you don't guess the
+                        answer.</p>
+                    <p>If you're not sure what tax credits you get:</p>
+                    <ul class="nhsuk-list nhsuk-list--bullet">
+                        <li>check your tax credit award notice</li>
+                        <li>contact the <a
+                                href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/tax-credits-enquiries">tax
+                                credits helpline</a></li>
+                    </ul>
+                </div>
+            </details>
+
+            <a class="nhsuk-button" href="#" type="submit">
+                Continue
+            </a>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

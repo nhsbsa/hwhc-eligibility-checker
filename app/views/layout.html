@@ -44,6 +44,24 @@
 <!-- Footer goes inside the footer block -->
 {% block footer %}
 
+{% if data.debug === 'true' %}
+    
+      <div class="nhsuk-width-container">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-full">
+
+            <h2 class="nhsuk-heading-m">Session data</h2>
+            {{ textarea({
+              value: data | dump
+            }) }}
+
+          </div>
+        </div>
+      </div>
+
+{% endif %}
+
+
 
 {{ footer({
   meta: {

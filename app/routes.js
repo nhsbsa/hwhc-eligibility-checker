@@ -12,6 +12,10 @@ router.use('/v1', versionOne);
 const versionTwo = require('./views/v2/check-for-help-paying-nhs-costs/routes')
 router.use('/v2', versionTwo);
 
+//v3
+const versionThree = require('./views/v3/check-for-help-paying-nhs-costs/_routes')
+router.use('/v3', versionThree);
+
 /* *********************** Routes for Research *********************** */
 
 const August24RouteA = require('./views/research/august-2024/route-a/routes')

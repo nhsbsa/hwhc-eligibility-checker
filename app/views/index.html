@@ -70,9 +70,30 @@ NHS.UK prototype kit
         <h2 class="nhsuk-heading-l">Eligibility Checker MVP Latest Version
         </h2>
 
+
+
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-one-half">
-            <a class="nhsuk-button" data-module="nhsuk-button" type="submit" href="/v2/check-for-help-paying-nhs-costs/start">Latest prototype version (v2.0)</a>
+
+            {{ button({
+              href: '/v3/check-for-help-paying-nhs-costs/start',
+              text: 'Latest prototype version (v3.0)'
+            }) }}
+
+          </div>
+          <div class="nhsuk-grid-column-one-half">
+            <p style="padding-top:12px;">Last Updated 5th January 2026</p>
+          </div>
+        </div>
+
+        <h3 class="nhsuk-heading-m">What's new in v3.0</h3>
+        <p style="background: #DEE0E2; padding: 20px;">End of life benefits (Income-based JSA, Income-related ESA and Income Support) has lead to a reworking of routes within the prototype.</p>
+
+        <hr>
+
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-one-half">
+            <a class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" type="submit" href="/v2/check-for-help-paying-nhs-costs/start">Prototype version (v2.0)</a>
           </div>
           <div class="nhsuk-grid-column-one-half">
             <p style="padding-top:12px;">Last Updated 11th December 2025</p>

@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {% if data.partner == "yes" %}
+            {% set questionTitle = 'Do you or your partner get paid Universal Credit?' %}
+            {% set yesRadio = 'Yes, one or both of us receive Universal Credit payments' %}
+            {% set notYetRadio = 'Not yet, but one or both of us have applied' %}
+        {% else %}
+            {% set questionTitle = 'Do you get paid Universal Credit?' %}
+            {% set yesRadio = 'Yes, I receive Universal Credit payments' %}
+            {% set notYetRadio = 'Not yet, but I have applied' %}
+        {% endif %}
+
+         <form method="post" novalidate>
+
+            {{ radios({
+                idPrefix: 'universal-credit',
+                name: 'universal-credit',
+                value: data['universal-credit'],
+                fieldset: {
+                    legend: {
+                        text: questionTitle,
+                        classes: 'nhsuk-fieldset__legend--l',
+                        isPageHeading: true
+                    }
+                },
+                items: [
+                    {
+                        value: 'yes',
+                        text: yesRadio
+                    },
+                    {
+                        value: 'no',
+                        text: 'No'
+                    },
+                    {
+                        divider: 'or'
+                    },
+                    {
+                        value: 'hasApplied',
+                        text: notYetRadio
+                    }
+                ]
+                }) }}
+           
+
+           {{ button({
+            text: 'Continue'
+           }) }}
+            
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

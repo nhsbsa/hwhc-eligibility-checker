@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+
+<!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+{% block headCSS %}
+  <link href="/css/main.css" rel="stylesheet">
+{% endblock %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Start page template - NHS.UK prototype kit
+{% endblock %}
+
+<!-- Header goes inside the header block -->
+<!-- More info and code for the header can be found at https://service-manual.nhs.uk/design-system/components/header -->
+{% block header %}
+
+<div id="nhsuk-cookie-banner" data-nosnippet="true">
+  <div class="nhsuk-cookie-banner" id="cookiebanner">
+    <div class="nhsuk-width-container"> 
+      <br>
+        <h2>Cookies on the NHS website</h2> 
+        <p>We've put some small files called cookies on your device to make our site work.</p>
+        <p>We'd also like to use analytics cookies. These send information about how our site is used to services called Adobe Analytics, Hotjar and Google Analytics. We use this information to improve our site.</p>
+        <p>Let us know if this is OK. We'll use a cookie to save your choice. You can <a id="nhsuk-cookie-banner__link" href="nhsbsa-cookies" tabindex="1">read more about our cookies</a> before you choose.</p>
+        <form action="cookies-decision">
+            <button class="nhsuk-button" href="cookies/cookies-decision" tabindex="2">I'm OK with analytics cookies</button>&nbsp;&nbsp;&nbsp;
+        
+            <button class="nhsuk-button" href="#" tabindex="3">Do not use analytics cookies</button>
+          </form>
+    </div>
+  </div>
+
+  <div class="nhsuk-success-banner" id="nhsuk-cookie-confirmation-banner" style="display:none;">
+    <div class="nhsuk-width-container">
+      <p id="nhsuk-success-banner__message">You can change your cookie settings at any time using our <a href="/our-policies/cookies-policy/">cookies page</a>.</p>
+    </div>
+  </div>
+</div>
+
+  {{ header({
+    "service": {
+        "name": "Check what help you could get to pay for NHS costs",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<h1>
+  Check what help you could get to pay for NHS costs
+</h1>
+
+<p class="nhsuk-caption-l nhsuk-u-margin-bottom-5">
+  Although most NHS treatment is free, there is usually a charge for:
+</p>
+
+<ul>
+  <li>NHS prescriptions</li>
+  <li>NHS dental check-ups and treatment</li>
+  <li>sight tests</li>
+  <li>new glasses or contact lenses</li>
+  <li>repairing or replacing glasses or contact lenses</li>
+  <li>NHS wigs</li>
+  <li>NHS fabric supports – things like surgical bras, support tights and spinal supports</li>
+  <li>travel for NHS treatment</li>
+</ul>
+
+<p>You could be entitled to help with these costs depending on your circumstances.</p>
+
+<div class="nhsuk-inset-text">
+  <span class="nhsuk-u-visually-hidden">Information: </span>
+  <p><strong>It should take about 3 minutes to check.</strong></p>
+</div>
+<p><a href="/v2/check-for-help-paying-nhs-costs/where-you-live" class="nhsuk-button">Start now</a></p>
+
+
+</div>
+
+</div>
+{% endblock %}

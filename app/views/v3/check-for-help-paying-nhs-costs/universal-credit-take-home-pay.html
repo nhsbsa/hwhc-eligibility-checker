@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        
+
+        {% if data['partner'] == "yes" %}
+            <!-- PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Did you and your partner have a combined total take-home pay of {% if data['universal-credit-claim'] == "yes" %}£935{% else %}£435{% endif %} or less in your last Universal Credit period?
+            </h1>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Was your total take-home pay for your last Universal Credit period {% if data['universal-credit-claim'] == "yes" %}£935{% else %}£435{% endif %} or less?
+            </h1>
+        {% endif %}
+
+    </div>
+
+    <div class="nhsuk-grid-column-full">
+
+         <form action="universal-credit-take-home-pay" method="post">
+
+            <div class="nhsuk-form-group">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+                    <div class="nhsuk-hint" id="contact-hint" style="margin-bottom: 20px;">
+                        Total take-home pay is used to work out your Universal Credit payments.
+                    </div>
+
+                    <div class="nhsuk-hint" id="contact-hint" style="margin-bottom: 20px;">
+                        It is shown on your statement as 'Your total take-home pay for this period'.
+                    </div>
+
+                    <div class="nhsuk-hint" id="contact-hint" style="margin-bottom: 20px;">
+                        If you don't work, your total take-home pay will be £0.
+                    </div>
+                    
+
+                    <div class="nhsuk-radios nhsuk-radios--inline">
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="yes" name="universal-credit-take-home-pay" type="radio"
+                                value="yes">
+                            <label class="nhsuk-label nhsuk-radios__label" for="yes">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="no" name="universal-credit-take-home-pay" type="radio" value="no">
+                            <label class="nhsuk-label nhsuk-radios__label" for="no">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
+
+            <button class="nhsuk-button" type="submit">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

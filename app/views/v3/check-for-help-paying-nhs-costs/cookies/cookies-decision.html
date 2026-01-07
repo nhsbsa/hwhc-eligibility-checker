@@ -1,0 +1,79 @@
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-cookies-1.html' %}
+
+
+<!-- 
+  In /views/layout.html you can:
+    - edit the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Start page template - NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+
+
+
+
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+
+
+{% endblock %}
+
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+
+
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>
+      Check what help you could get to pay for NHS costs
+  </h1>
+
+  <p class="nhsuk-caption-l nhsuk-u-margin-bottom-5">
+      Although most NHS treatment is free, there is usually a charge for:
+  </p>
+
+  <ul>
+      <li>NHS prescriptions</li>
+      <li>NHS dental check-ups and treatment</li>
+      <li>sight tests</li>
+      <li>new glasses or contact lenses</li>
+      <li>repairing or replacing glasses or contact lenses</li>
+      <li>NHS wigs</li>
+      <li>NHS fabric supports – things like surgical bras, support tights and spinal supports</li>
+      <li>travel for NHS treatment</li>
+  </ul>
+
+  <p>You could be entitled to help with these costs depending on your circumstances.</p>
+
+  <div class="nhsuk-inset-text">
+      <span class="nhsuk-u-visually-hidden">Information: </span>
+      <p><strong>It should take about 3 minutes to check.</strong></p>
+  </div>
+  <p><a href="/v2/check-for-help-paying-nhs-costs/where-you-live" class="nhsuk-button">Start now</a></p>
+
+
+</div>
+
+</div>
+{% endblock %}
