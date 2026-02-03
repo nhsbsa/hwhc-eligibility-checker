@@ -28,7 +28,7 @@ NHS.UK prototype kit
     <!-- Change the page title here -->
     <h1>
       Eligibility checker
-      <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version 2.0</span>
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version 3.0</span>
     </h1>
 
     <!-- Add your content here -->
@@ -75,19 +75,32 @@ NHS.UK prototype kit
         <div class="nhsuk-grid-row">
           <div class="nhsuk-grid-column-one-half">
 
+
+            <div class="nhsuk-button-group">
+
             {{ button({
-              href: '/v3/check-for-help-paying-nhs-costs/start',
-              text: 'Latest prototype version (v3.0)'
+              href: '/v3/start',
+              text: 'Latest - UC, PC and IR-ESA (v3.0)'
             }) }}
+
+            {{ button({
+              href: '/v4/check-for-help-paying-nhs-costs/start',
+              text: 'Future - UC and PC only (v4.0)',
+              classes: 'nhsuk-button--secondary'
+            }) }}
+
+            </div>
+
+
 
           </div>
           <div class="nhsuk-grid-column-one-half">
-            <p style="padding-top:12px;">Last Updated 5th January 2026</p>
+            <p style="padding-top:12px;">Last Updated 3rd February 2026</p>
           </div>
         </div>
 
-        <h3 class="nhsuk-heading-m">What's new in v3.0</h3>
-        <p style="background: #DEE0E2; padding: 20px;">End of life benefits (Income-based JSA, Income-related ESA and Income Support) has lead to a reworking of routes within the prototype.</p>
+        <h3 class="nhsuk-heading-m">What's new in v3.0 and v4.0</h3>
+        <p style="background: #DEE0E2; padding: 20px;">Version v4.0 completely removes end of life benefits (Income-based JSA, Income-related ESA and Income Support) and features reworking of routes within the prototype.<br /><br />In Februrary 2026, it was decided that income-based ESA will continue to be accepted, so a separate V3.0 was created to accomodate that.</p>
 
         <hr>
 

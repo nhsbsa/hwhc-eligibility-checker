@@ -1,0 +1,92 @@
+{% extends 'layout-done.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+    <div class="done-panel">
+      <div class="nhsuk-heading-xl" id="completed">
+        <span class="done-tick" id="done-tick">Done</span>
+      </div>
+      <h2 class="nhsuk-heading-l done-panel-heading-margin">Based on what you've told us, you can apply for help with NHS costs
+      </h2>
+    </div>
+    <h2 class="nhsuk-heading-m">Because you get help from your local council to pay for your care home, you're entitled to help.</h2>
+    <h2 class="nhsuk-heading-m">How to get your help</h2>
+
+    
+      <p class="nhsuk-body">You will need to complete an application form. You can do this online and it should take about 10 minutes.</p>
+      <div>
+    <a class="nhsuk-button" role="button" id="lis-button" href="https://services.nhsbsa.nhs.uk/apply-for-help-with-nhs-costs/apply-online">
+      <span>Start now</span>
+    </a>
+  </div>
+
+      <h2 class="nhsuk-heading-m">Other ways to apply</h2>
+
+      <p class="nhsuk-body">You can apply by post using an HC1(SC) form.</p>
+      <p class="nhsuk-body">Find out <a class="nhsuk-link" href="https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-26064/en-us" rel="noreferrer noopener" target="_blank">how to get an HC1(SC)
+          form (opens in new tab)</a>.</p>
+    
+
+    <hr class="nhsuk-section-break nhsuk-section-break--visible" aria-hidden="true" />
+
+    <h2 class="nhsuk-heading-m">What you'll get</h2>
+
+    <h3 class="nhsuk-heading-s">You get free:</h3>
+
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>
+        NHS prescriptions
+      </li>
+      <li>
+        NHS dental check-ups and treatment
+      </li>
+      
+      <li>
+        sight tests
+      </li>
+      <li>
+        NHS wigs and fabric supports
+      </li>
+    </ul>
+
+    <h3 class="nhsuk-heading-s">You get money off:</h3>
+    <ul class="nhsuk-list nhsuk-list--bullet">
+      <li>
+        new glasses or contact lenses
+      </li>
+      <li>
+        repairing or replacing your glasses or contact lenses
+      </li>
+      <li>
+        travel for NHS treatment
+      </li>
+    </ul>
+
+    <hr class="nhsuk-section-break nhsuk-section-break--visible" aria-hidden="true" />
+
+    <div>
+		<div class="nhsuk-form-group">
+			<h2 class="nhsuk-heading-m">Help us to improve this service</h2>
+			<p>Help us to improve the service by <a class="nhsuk-link" id="finished-survey" href="https://online1.snapsurveys.com/eligibility_checker" target="_blank" rel="noreferrer noopener">answering some questions (opens in new tab)</a> about it.</p>
+			<p>The survey will take less than a minute to complete.</p>
+		</div>
+	</div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -13,8 +13,12 @@ const versionTwo = require('./views/v2/check-for-help-paying-nhs-costs/routes')
 router.use('/v2', versionTwo);
 
 //v3
-const versionThree = require('./views/v3/check-for-help-paying-nhs-costs/_routes')
+const versionThree = require('./views/v3/_routes')
 router.use('/v3', versionThree);
+
+//v3
+const versionFour = require('./views/v4/check-for-help-paying-nhs-costs/_routes')
+router.use('/v4', versionFour);
 
 /* *********************** Routes for Research *********************** */
 

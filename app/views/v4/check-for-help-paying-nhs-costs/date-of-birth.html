@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-fieldset__legend--l">
+            What is your date of birth?
+        </h1>
+
+        <form action="date-of-birth" method="post">
+
+            <div class="nhsuk-form-group">
+                <fieldset class="nhsuk-fieldset" aria-describedby="dob-hint" role="group">
+                    <span class="nhsuk-hint" id="dob-hint">
+                        For example, 31 3 1980
+                    </span>
+
+                    <div class="nhsuk-date-input" id="dob">
+                        <div class="nhsuk-date-input__item">
+                            <div class="nhsuk-form-group">
+                                <label class="nhsuk-label nhsuk-date-input__label" for="dob-day">
+                                    Day
+                                </label>
+                                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-day"
+                                    name="dob-day" type="number" pattern="[0-9]*">
+                            </div>
+                        </div>
+                        <div class="nhsuk-date-input__item">
+                            <div class="nhsuk-form-group">
+                                <label class="nhsuk-label nhsuk-date-input__label" for="dob-month">
+                                    Month
+                                </label>
+                                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="dob-month"
+                                    name="dob-month" type="number" pattern="[0-9]*">
+                            </div>
+                        </div>
+                        <div class="nhsuk-date-input__item">
+                            <div class="nhsuk-form-group">
+                                <label class="nhsuk-label nhsuk-date-input__label" for="dob-year">
+                                    Year
+                                </label>
+                                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="dob-year"
+                                    name="dob-year" type="number" pattern="[0-9]*">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+            </div>
+
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text">
+                        Why we ask for your date of birth
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                    <p>We use your date of birth to work out your age. Depending on where you live, your age could
+                        entitle you to help with NHS costs, such as free prescriptions or dental treatment.</p>
+                </div>
+            </details>
+
+            <button class="nhsuk-button" type="submit">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        
+
+        {% if data['partner'] == "yes" %}
+            <!-- PARTNER -->
+            {% set benefitsHeader = 'Do you or your partner claim any of the following benefits?' %}
+        {% else %}
+            <!-- NO PARTNER -->
+            {% set benefitsHeader = 'Do you claim any of the following benefits?' %}
+        {% endif %}
+
+         <form method="post">
+
+            {% set ucHTML %}
+                {{ radios({
+                idPrefix: 'ucClaimOrApplication',
+                name: 'ucClaimOrApplication',
+                fieldset: {
+                    legend: {
+                        text: 'Are you already claiming Universal Credit, or awaiting a decision?',
+                        classes: 'nhsuk-u-visually-hidden',
+                        isPageHeading: false
+                    }
+                },
+                items: [
+                    { value: 'claim', text: 'I get paid Universal Credit' },
+                    { value: 'application', text: 'I am waiting for a decision about Universal Credit' }
+                ]
+                }) }}
+            {% endset %}
+
+            {{ radios({
+            idPrefix: 'benefitClaimed',
+            name: 'benefitClaimed',
+            fieldset: {
+                legend: {
+                text: benefitsHeader,
+                classes: 'nhsuk-fieldset__legend--l',
+                isPageHeading: true
+                }
+            },
+            items: [
+                { value: 'uc', text: 'Universal Credit', conditional: { html: ucHTML } },
+                { value: 'pc', text: 'Pension Credit' },
+                { 
+                    value: 'esa', 
+                    text: 'Income-related Employment Support Allowance (ESA)',
+                    hint: { text: 'This is different to contributory-related or New Style ESA' }
+                },
+                { divider: 'or' },
+                { value: '', text: "I don't claim any of these" }
+            ]
+            }) }}
+
+        
+
+           {{ button({
+            text: 'Continue'
+           }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

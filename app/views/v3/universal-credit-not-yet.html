@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Start page template - NHS.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">While you and your partner are waiting on a Universal Credit decision</h1>
+            
+        <p class="nhsuk-body">Until the first assessment period is complete, Universal Credit doesn't entitle you or your partner to help with NHS costs.</p>
+        <p class="nhsuk-body">If you or your partner need to pay for any NHS charges, for example, prescriptions or dental treatment, get a receipt and ask how to claim a refund.</p>
+        <p class="nhsuk-body">If you or your partner pay for a prescription, ask for a refund receipt called an FP57 when you pay - you can't get one later.</p>
+
+        {{ button({
+            href: 'pension-credit-or-other-benefit',
+            text: 'Continue'
+        }) }}
+
+    </div>
+
+</div>
+{% endblock %}

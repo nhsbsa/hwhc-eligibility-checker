@@ -1,0 +1,120 @@
+{% extends 'layout-done.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <style>.nhsuk-width-container:has(.nhsuk-phase-banner){ display: none; }</style>
+
+        <div class="done-panel">
+            <div class="nhsuk-heading-xl" id="completed">
+              <span class="done-tick" id="done-tick">Done</span>
+            </div>
+      
+            <h1 class="nhsuk-heading-l" style="color: white">
+              Based on what you've told us you can get help with NHS costs
+            </h1>
+
+        </div>
+
+
+        
+
+        {% if data['partner'] == "yes" %}
+            <!-- PARTNER -->
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Because you or your partner get Pension Credit Guarantee Credit:</h2>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">Because you get Pension Credit Guarantee Credit:</h2>
+        {% endif %}
+				
+        <h3 class="nhsuk-heading-m">You get free:</h3>
+
+        {% set tickIcon = '<svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+        <path d="M11.4 18.8a2 2 0 0 1-2.7.1h-.1L4 14.1a1.5 1.5 0 0 1 2.1-2L10 16l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"></path>
+      </svg>' %}
+
+        <ul class="nhsuk-list nhsuk-list--tick">
+            <li>{{ tickIcon | safe  }}NHS prescriptions</li>
+            <li>{{ tickIcon | safe  }}NHS dental check-ups and treatment</li>
+            <li>{{ tickIcon | safe  }}sight tests</li>
+            <li>{{ tickIcon | safe  }}NHS wigs and fabric supports</li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">You get money off:</h3>
+
+        <ul class="nhsuk-list nhsuk-list--tick">
+            <li>{{ tickIcon | safe  }}new glasses or contact lenses</li>
+            <li>{{ tickIcon | safe  }}repairing or replacing your glasses or contact lenses{{ tickIcon | safe  }}</li>
+            <li>{{ tickIcon | safe  }}travel for NHS treatment</li>
+        </ul>
+
+        {% if data['partner'] == "yes" %}
+            <!-- PARTNER -->
+            <div class="nhsuk-inset-text">
+                <span class="nhsuk-u-visually-hidden">Information: </span>
+                <p>Your partner and any children under 20 included on your Income-related Employment and Support Allowance claim are also entitled to the same help.</p>
+            </div>
+        {% else %}
+            <!-- NO PARTNER -->
+            <div class="nhsuk-inset-text">
+                <span class="nhsuk-u-visually-hidden">Information: </span>
+                <p>Any children under 20 included on your Income-related Employment and Support Allowance claim are also entitled to the same help.</p>
+            </div>
+        {% endif %}
+
+        <hr>
+
+        <h2 class="nhsuk-heading-m">How to get your help</h2>
+
+        <p>In most cases, you don't have to do anything more, although you may have to show proof you get Pension Credit Guarantee Credit to your pharmacist, optician or dentist.</p>
+
+        <p>You can use your latest benefit letter or award notice as proof. If you have lost yours contact the <a
+                href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims" target="_blank">Jobcentre Plus Helpline (opens in new tab)</a>.
+        </p>
+
+        <h3 class="nhsuk-heading-s">Help with travel for NHS treatment</h3>
+
+        <p>Tell the hospital (or the place where you're getting treatment) that you want to claim back the cost of your
+            journey. They'll tell you what you need to do.</p>
+
+        <p>You may need to show proof:</p>
+
+        <ul>
+            <li>of your travel costs, for example, bus tickets</li>
+            <li>that you're entitled to help</li>
+        </ul>
+
+        <div class="nhsuk-warning-callout">
+            <h4 class="nhsuk-warning-callout__label">Warning</h4>
+            <p>It's important you know what benefit you get - you can get a fine if you claim help with NHS costs and
+                you're not entitled.</p>
+        </div>
+
+
+        <h2 class="nhsuk-heading-m">Feedback</h2>
+
+        <p>Help us to improve the service by telling us about your experience.
+            <a href="https://www.snapsurveys.com/wh/s.asp?k=150212725926" target="_blank"> Take our short survey (opens in new tab)</a>.
+          </p>
+          <p>The survey will take less than a minute to complete.</p>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}

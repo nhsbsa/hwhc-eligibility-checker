@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {% if data['partner'] == "yes" %}
+            <!-- PARTNER -->
+            {% set benefitsHeader = 'Do you or your partner get any of these benefits?' %}
+            {% set notListed = 'Our benefit is not listed' %}
+            {% set benefitsNone = 'We do not get any of these' %}
+            {% set benefitsError = 'Choose a benefit or select "' + benefitsNone + '"' %}
+        {% else %}
+            <!-- NO PARTNER -->
+            {% set benefitsHeader = 'Do you get any of these benefits?' %}
+            {% set notListed = 'My benefit is not listed' %}
+            {% set benefitsNone = 'I do not get any of these' %}
+            {% set benefitsError = 'Choose a benefit or select "' + benefitsNone + '"' %}
+        {% endif %}
+
+        {{ errorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                text: benefitsError,
+                href: "#benefitClaimed"
+                }
+            ]
+            }) }}
+
+         <form action="pension-credit-or-other-benefit" method="post" novalidate>
+
+        
+            {{ radios({
+            idPrefix: 'benefitClaimed',
+            name: 'benefitClaimed',
+            fieldset: {
+                legend: {
+                text: benefitsHeader,
+                classes: 'nhsuk-fieldset__legend--l',
+                isPageHeading: true
+                }
+            },
+            errorMessage: {
+                text: benefitsError
+            },
+            items: [
+               
+                { value: 'pc', text: 'Pension Credit' },
+                { 
+                    value: 'esa', 
+                    text: 'Income-related Employment Support Allowance',
+                    hint: { text: 'This is not the same as New Style Employment and Support Allowance' }
+                },
+                { divider: 'or' },
+                { value: 'none', text: benefitsNone }
+            ]
+            }) }}
+
+
+            {% call details({
+                summaryText: notListed
+            }) %}
+
+                <p>We do not ask about these benefits because they do not entitle you to help with NHS costs:</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Personal Independence Payment (PIP)</li>
+                    <li>Armed Forces Independence Payment (AFIP)</li>
+                    <li>Disability Living Allowance (DLA)</li>
+                    <li>Incapacity Benefit</li>
+                    <li>Attendance Allowance</li>
+                    <li>Carer's Allowance</li>
+                    <li>Income Support</li>
+                    <li>New Style Jobseeker's Allowance</li>
+                    <li>Income-related Jobseeker’s Allowance</li>
+                    <li>New Style Employment and Support Allowance (sometimes called contribution-based Employment and Support Allowance)</li>
+                    <li>Housing Benefit</li>
+                    <li>Child Benefit</li>
+                    <li>Council Tax Benefit</li>
+                </ul>
+                <p>It's important you know what benefit you get. If you're not sure contact <a class="nhsuk-link" href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims" target="_blank">Jobcentre Plus</a> (opens in new tab).</p>
+
+            {% endcall %}
+
+        
+
+           {{ button({
+            text: 'Continue'
+           }) }}
+            
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

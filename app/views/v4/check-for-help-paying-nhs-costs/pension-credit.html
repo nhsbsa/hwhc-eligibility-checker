@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        {% if data.partner == "yes" %}
+            {% set questionTitle = 'Do you or your partner get Pension Credit?' %}
+        {% else %}
+            {% set questionTitle = 'Do you get Pension Credit?' %}
+        {% endif %}
+
+         <form method="post" novalidate>
+
+            {{ radios({
+                idPrefix: 'pension-credit',
+                name: 'pension-credit',
+                value: data['pension-credit'],
+                fieldset: {
+                    legend: {
+                        text: questionTitle,
+                        classes: 'nhsuk-fieldset__legend--l',
+                        isPageHeading: true
+                    }
+                },
+                items: [
+                    {
+                        value: 'yes',
+                        text: 'Yes'
+                    },
+                    {
+                        value: 'no',
+                        text: 'No'
+                    }
+                ]
+                }) }}
+           
+
+           {{ button({
+            text: 'Continue'
+           }) }}
+            
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

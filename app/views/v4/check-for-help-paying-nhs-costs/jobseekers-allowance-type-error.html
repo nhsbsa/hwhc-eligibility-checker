@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+Question page
+{% endblock %}
+
+{% block beforeContent %}
+ {{ backLink({
+    href: 'javascript:history.go(-1)',
+    text: 'Back'
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+            <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+                There is a problem
+            </h2>
+            <div class="nhsuk-error-summary__body">
+                <p>
+                    Check your answer. You must:
+                </p>
+                <ul class="nhsuk-list nhsuk-error-summary__list">
+                    <li>
+                        <a href="#error-summary-1">Select which type of JSA you get</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        
+
+        {% if data['partner'] == "yes" %}
+            <!-- PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Which type of Jobseeker's Allowance (JSA) do you or your partner get?
+            </h1>
+        {% else %}
+            <!-- NO PARTNER -->
+            <h1 class="nhsuk-fieldset__legend--l">
+                Which type of Jobseeker's Allowance (JSA) do you get?
+            </h1>
+        {% endif %}
+
+         <form action="jobseekers-allowance-type" method="post">
+
+            <div class="nhsuk-form-group nhsuk-form-group--error">
+
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+
+                    <span class="nhsuk-hint" id="example-hint">
+                            There are 2 types of JSA, income-based and contribution-based.
+                    </span>
+
+                    <details class="nhsuk-details">
+                            <summary class="nhsuk-details__summary">
+                                <span class="nhsuk-details__summary-text">
+                                    I'm not sure which type I get
+                                </span>
+                            </summary>
+                            <div class="nhsuk-details__text">
+                                <h4>Check your benefit payment letter</h4>
+                                <p>The type of JSA you get is shown on page 3 or 4, under the heading <strong>'How your Jobseeker's Allowance was worked out'</strong>. It will say either:</p>
+                                <p>It will say either:</p>
+                                <ul>
+                                    <li>'We call this <strong>income-based</strong> Jobseeker's Allowance.'</li>
+                                    <li>'We call this <strong>contribution-based</strong> Jobseeker's Allowance.'</li>
+                                </ul>
+                                <p>Find out more about the different types of <a target="_blank"
+                                    href="https://www.gov.uk/jobseekers-allowance/what-type-you-get">JSA</a>.</p>
+                                <p>It's important you know what benefit you get. If you're not sure contact the <a target="_blank"
+                                        href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Jobcentre Plus
+                                        Helpline</a>.</p>
+                            </div>
+                    </details>
+
+
+                    <span class="nhsuk-error-message" id="error-summary-1">
+                        <span class="nhsuk-u-visually-hidden">Error:</span> Select which type of JSA you get
+                    </span>
+
+                    <div class="nhsuk-radios">
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="income" name="jobseekers-allowance-type" type="radio" value="income">
+                            <label class="nhsuk-label nhsuk-radios__label" for="income">
+                                Income-related ESA
+                            </label>
+                        </div>
+                        <div class="nhsuk-radios__item">
+                            <input class="nhsuk-radios__input" id="contribution" name="jobseekers-allowance-type" type="radio" value="contribution">
+                            <label class="nhsuk-label nhsuk-radios__label" for="contribution">
+                                Contribution-based ESA
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
+
+            <button class="nhsuk-button" type="submit">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
