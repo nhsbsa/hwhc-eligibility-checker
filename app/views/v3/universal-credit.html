@@ -16,13 +16,13 @@ Question page
     <div class="nhsuk-grid-column-two-thirds">
 
         {% if data.partner == "yes" %}
-            {% set questionTitle = 'Do you or your partner get paid Universal Credit?' %}
-            {% set yesRadio = 'Yes, one of us gets Universal Credit payments' %}
-            {% set notYetRadio = 'Not yet, but one or both of us have claimed' %}
+            {% set questionTitle = 'Do you or your partner get Universal Credit?' %}
+            {% set yesRadio = 'Yes, one of us is getting Universal Credit payments' %}
+            {% set notYetRadio = 'Not yet but one of us has claimed Universal Credit' %}
         {% else %}
-            {% set questionTitle = 'Do you get paid Universal Credit?' %}
-            {% set yesRadio = 'Yes, I get Universal Credit payments' %}
-            {% set notYetRadio = 'Not yet, but I have claimed' %}
+            {% set questionTitle = 'Do you get Universal Credit?' %}
+            {% set yesRadio = 'Yes, I am getting Universal Credit payments' %}
+            {% set notYetRadio = 'Not yet but I have claimed Universal Credit' %}
         {% endif %}
 
          <form method="post" novalidate>
